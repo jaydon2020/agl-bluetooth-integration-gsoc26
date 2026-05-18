@@ -1,15 +1,33 @@
-# agl_docs_main
+# AGL Bluetooth Integration - GSoC 2026
 
-A documentation site built with Jaspr
+Welcome to the Automotive Grade Linux (AGL) Bluetooth Integration repository for GSoC 2026.
 
-## Running the project
+## Repository Structure
 
-Run your project using `jaspr serve`.
+- **/docs**: The official Jaspr-based technical documentation and progress tracking site for the GSoC project.
+- **/** (Root): Reserved for the core GSoC integration code and implementation work.
 
-The development server will be available on `http://localhost:8080`.
+---
 
-## Building the project
+## Technical Documentation (`/docs`)
 
-Build your project using `jaspr build`.
+The documentation site is built using the [Jaspr](https://github.com/schultek/jaspr) web framework.
 
-The output will be located inside the `build/jaspr/` directory.
+### Getting Started with Docs
+
+1. Navigate to the `docs` directory:
+   ```bash
+   cd docs
+   ```
+
+2. Run the development server:
+   ```bash
+   jaspr serve
+   ```
+   The site will be live at `http://localhost:8080`.
+
+3. Build the static site:
+   ```bash
+   jaspr build
+   ```
+   The production build output will be located in the `docs/build/jaspr/` directory.

@@ -1,30 +1,24 @@
-# Files and directories created by pub.
-**/doc/api/
-.dart_tool/
-.packages
+# Root-level gitignore for AGL Bluetooth Integration GSoC project
 
-# Conventional directory for build output.
-/build/
+# Jaspr Documentation project ignores
+docs/.dart_tool/
+docs/.packages
+docs/build/
 
-# Miscellaneous
-*.class
-*.log
-*.pyc
-*.swp
-.DS_Store
-.atom/
-.buildlog/
-.history
-.svn/
-migrate_working_dir/
-
-# IntelliJ related
-*.iml
-*.ipr
-*.iws
+# IDE and OS files
 .idea/
+.vscode/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.log
 
-# The .vscode folder contains launch configuration and tasks you configure in
-# VS Code which you may wish to be included in version control, so this line
-# is commented out by default.
-#.vscode/
+# Compiled and build outputs
+*.class
+*.pyc
+*.o
+*.a
+*.so
