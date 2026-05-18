@@ -12,6 +12,10 @@ import 'package:agl_docs_main/components/flutter_site_switcher.dart'
     as _flutter_site_switcher;
 import 'package:agl_docs_main/components/flutter_theme_switcher.dart'
     as _flutter_theme_switcher;
+import 'package:agl_docs_main/components/profile_matrix.dart'
+    as _profile_matrix;
+import 'package:agl_docs_main/components/project_dashboard.dart'
+    as _project_dashboard;
 import 'package:agl_docs_main/components/site_search.dart' as _site_search;
 import 'package:agl_docs_main/components/toc_scroll_spy.dart'
     as _toc_scroll_spy;
@@ -55,6 +59,11 @@ ServerOptions get defaultServerOptions => ServerOptions(
         ClientTarget<_flutter_theme_switcher.FlutterThemeSwitcher>(
           'flutter_theme_switcher',
         ),
+    _profile_matrix.ProfileMatrix: ClientTarget<_profile_matrix.ProfileMatrix>(
+      'profile_matrix',
+    ),
+    _project_dashboard.ProjectDashboard:
+        ClientTarget<_project_dashboard.ProjectDashboard>('project_dashboard'),
     _site_search.SiteSearch: ClientTarget<_site_search.SiteSearch>(
       'site_search',
       params: __site_searchSiteSearch,

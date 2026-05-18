@@ -13,12 +13,7 @@ For profile-specific BLE notes, see the [Profile GATT](/bluetooth/verify-bluez/p
 
 The Qualcomm guide demonstrates Bluetooth profile procedures through Linux sample applications. For AGL, use the same application names as a profile map, then adjust each test to the services available in the target image.
 
-| Sample application | Profiles |
-| --- | --- |
-| `bluetoothctl` | GAP, GATT, A2DP |
-| `evtool` | HOGP |
-| `obexctl` | OPP, FTP, PBAP, MAP |
-| `ofono` | HFP |
+<ProfileMatrix/>
 
 AGL bring-up priority:
 

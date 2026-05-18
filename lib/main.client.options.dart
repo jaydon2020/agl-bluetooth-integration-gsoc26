@@ -13,6 +13,10 @@ import 'package:agl_docs_main/components/flutter_site_switcher.dart'
     deferred as _flutter_site_switcher;
 import 'package:agl_docs_main/components/flutter_theme_switcher.dart'
     deferred as _flutter_theme_switcher;
+import 'package:agl_docs_main/components/profile_matrix.dart'
+    deferred as _profile_matrix;
+import 'package:agl_docs_main/components/project_dashboard.dart'
+    deferred as _project_dashboard;
 import 'package:agl_docs_main/components/site_search.dart'
     deferred as _site_search;
 import 'package:agl_docs_main/components/toc_scroll_spy.dart'
@@ -55,6 +59,14 @@ ClientOptions get defaultClientOptions => ClientOptions(
     'flutter_theme_switcher': ClientLoader(
       (p) => _flutter_theme_switcher.FlutterThemeSwitcher(),
       loader: _flutter_theme_switcher.loadLibrary,
+    ),
+    'profile_matrix': ClientLoader(
+      (p) => _profile_matrix.ProfileMatrix(),
+      loader: _profile_matrix.loadLibrary,
+    ),
+    'project_dashboard': ClientLoader(
+      (p) => _project_dashboard.ProjectDashboard(),
+      loader: _project_dashboard.loadLibrary,
     ),
     'site_search': ClientLoader(
       (p) => _site_search.SiteSearch(indexJson: p['indexJson'] as String),

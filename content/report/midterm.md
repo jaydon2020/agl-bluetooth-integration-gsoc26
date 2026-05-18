@@ -1,6 +1,7 @@
 ---
 title: Midterm Report
 description: Upcoming midterm report for the AGL Bluetooth Integration project.
+search: false
 ---
 
 <div class="report-upcoming-card">

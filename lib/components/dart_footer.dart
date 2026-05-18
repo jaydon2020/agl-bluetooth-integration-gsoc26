@@ -17,18 +17,18 @@ final class DartStyleFooter extends StatelessComponent {
         div(classes: 'footer-section footer-main', [
           a(
             classes: 'brand',
-            href: '/bluetooth/overview',
+            href: '/',
             attributes: {
-              'aria-label': 'Go to the AGL Bluetooth docs home page.',
-              'title': 'AGL Bluetooth Docs',
+              'aria-label': "Go to JianDe's GSoC26 home page.",
+              'title': "JianDe's GSoC26",
             },
             [
               const img(
-                src: '/images/logo.svg',
-                alt: 'AGL Bluetooth logo',
+                src: '/images/gsoc-sun.svg',
+                alt: 'Google Summer of Code sun logo',
                 attributes: {'width': '42'},
               ),
-              span([.text('AGL Bluetooth Docs')]),
+              span([.text("JianDe's GSoC26")]),
             ],
           ),
           div(classes: 'footer-social-links', [
@@ -49,7 +49,7 @@ final class DartStyleFooter extends StatelessComponent {
         div(classes: 'footer-section footer-tray', [
           div(classes: 'footer-licenses', [
             .text(
-              'AGL Bluetooth Integration documentation for Google Summer of Code 2026. Except as otherwise noted, this site is licensed under a ',
+              "JianDe's GSoC26 project documentation for Google Summer of Code 2026. Except as otherwise noted, this site is licensed under a ",
             ),
             a(
               href: 'https://creativecommons.org/licenses/by/4.0/',
@@ -67,7 +67,7 @@ final class DartStyleFooter extends StatelessComponent {
             ul([
               li([
                 a(
-                  href: '/bluetooth/overview',
+                  href: '/',
                   [.text('Home')],
                 ),
               ]),
@@ -79,7 +79,7 @@ final class DartStyleFooter extends StatelessComponent {
               ]),
               li([
                 a(
-                  href: '/journal/week-1',
+                  href: '/journal',
                   [.text('Journal')],
                 ),
               ]),

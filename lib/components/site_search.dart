@@ -58,60 +58,64 @@ class _SiteSearchState extends State<SiteSearch> {
   Component build(BuildContext context) {
     final results = _results;
 
-    return section(classes: 'site-search', [
-      div(classes: 'search-row', [
-        div(classes: 'search-wrapper', [
-          const span(
-            classes: 'material-symbols leading-icon',
-            attributes: {
-              'aria-hidden': 'true',
-              'translate': 'no',
-            },
-            [.text('search')],
-          ),
-          input(
-            type: InputType.search,
-            value: _query,
-            attributes: {
-              'placeholder': 'Search docs',
-              'aria-label': 'Search docs',
-              'autocomplete': 'off',
-            },
-            onInput: (value) {
-              setState(() {
-                _query = value as String;
-              });
-            },
+    return section(
+      classes: 'site-search',
+      attributes: {'role': 'search'},
+      [
+        div(classes: 'search-row', [
+          div(classes: 'search-wrapper', [
+            const span(
+              classes: 'material-symbols leading-icon',
+              attributes: {
+                'aria-hidden': 'true',
+                'translate': 'no',
+              },
+              [.text('search')],
+            ),
+            input(
+              type: InputType.search,
+              value: _query,
+              attributes: {
+                'placeholder': 'Search docs',
+                'aria-label': 'Search docs',
+                'autocomplete': 'off',
+              },
+              onInput: (value) {
+                setState(() {
+                  _query = value as String;
+                });
+              },
+            ),
+          ]),
+        ]),
+        div(classes: 'search-summary', [
+          .text(
+            _query.trim().isEmpty
+                ? 'Showing all pages'
+                : '${results.length} result${results.length == 1 ? '' : 's'} for "$_query"',
           ),
         ]),
-      ]),
-      div(classes: 'search-summary', [
-        .text(
-          _query.trim().isEmpty
-              ? 'Showing all pages'
-              : '${results.length} result${results.length == 1 ? '' : 's'} for "$_query"',
-        ),
-      ]),
-      if (results.isEmpty)
-        div(classes: 'empty-search-results', [
-          h2([.text('No results found')]),
-          p([.text('Try a different search term.')]),
-        ])
-      else
-        ul(classes: 'search-results', [
-          for (final result in results)
-            li([
-              a(href: result.href, [
-                span(classes: 'result-title', [.text(result.title)]),
-                if (result.description.isNotEmpty)
-                  span(
-                    classes: 'result-description',
-                    [.text(result.description)],
-                  ),
+        if (results.isEmpty)
+          div(classes: 'empty-search-results', [
+            h2([.text('No results found')]),
+            p([.text('Try a different search term.')]),
+          ])
+        else
+          ul(classes: 'search-results', [
+            for (final result in results)
+              li([
+                a(href: result.href, [
+                  span(classes: 'result-title', [.text(result.title)]),
+                  if (result.description.isNotEmpty)
+                    span(
+                      classes: 'result-description',
+                      [.text(result.description)],
+                    ),
+                ]),
               ]),
-            ]),
-        ]),
-    ]);
+          ]),
+      ],
+    );
   }
 }
 

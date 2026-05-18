@@ -12,7 +12,7 @@ class SearchIndex extends StatelessComponent {
   Component build(BuildContext context) {
     final entries = [
       for (final page in context.pages)
-        if (_isSearchable(page.url))
+        if (_isSearchable(page))
           {
             'title': _pageTitle(page),
             'description': _pageDescription(page),
@@ -25,7 +25,10 @@ class SearchIndex extends StatelessComponent {
   }
 }
 
-bool _isSearchable(String url) => url != '/search' && !url.endsWith('.xml');
+bool _isSearchable(Page page) {
+  if (page.url == '/search' || page.url.endsWith('.xml')) return false;
+  return page.data.page['search'] != false;
+}
 
 String _pageTitle(Page page) {
   final title = page.data.page['title'];

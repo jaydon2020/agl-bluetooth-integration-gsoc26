@@ -1,6 +1,7 @@
 ---
 title: Final Report
 description: Upcoming final report for the AGL Bluetooth Integration project.
+search: false
 ---
 
 <div class="report-upcoming-card">

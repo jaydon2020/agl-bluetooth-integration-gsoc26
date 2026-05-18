@@ -45,31 +45,27 @@ class FlutterDocsHeader extends StatelessComponent {
           const a(
             id: 'site-primary-logo',
             classes: 'site-wordmark',
-            href: '/bluetooth/overview',
+            href: '/',
             attributes: {
-              'aria-label': 'Go to the AGL Bluetooth docs home page.',
-              'title': 'Go to the AGL Bluetooth docs home page.',
+              'aria-label': "Go to JianDe's GSoC26 home page.",
+              'title': "Go to JianDe's GSoC26 home page.",
             },
             [
               img(
-                src: '/images/logo.svg',
-                alt: 'AGL Bluetooth logo',
+                src: '/images/gsoc-sun.svg',
+                alt: 'Google Summer of Code sun logo',
                 attributes: {'width': '28'},
               ),
               span(
                 classes: 'name',
                 attributes: {'translate': 'no'},
-                [.text('AGL Bluetooth')],
-              ),
-              span(
-                classes: 'subtype',
-                [.text('Docs')],
+                [.text("JianDe's GSoC26")],
               ),
             ],
           ),
           ul(classes: 'nav-items', [
             _NavItem(
-              href: '/bluetooth/overview',
+              href: '/',
               label: 'Home',
               isActive: activeEntry == _ActiveNavEntry.home,
             ),
@@ -79,7 +75,7 @@ class FlutterDocsHeader extends StatelessComponent {
               isActive: activeEntry == _ActiveNavEntry.guides,
             ),
             _NavItem(
-              href: '/journal/week-1',
+              href: '/journal',
               label: 'Journal',
               isActive: activeEntry == _ActiveNavEntry.journal,
             ),
@@ -90,6 +86,7 @@ class FlutterDocsHeader extends StatelessComponent {
               const form(
                 action: '/search/',
                 id: 'header-search',
+                attributes: {'role': 'search'},
                 [
                   input(
                     classes: 'search-field',
@@ -109,8 +106,8 @@ class FlutterDocsHeader extends StatelessComponent {
                 classes: 'icon-button',
                 href: '/search',
                 attributes: {
-                  'aria-label': 'Navigate to the docs.flutter.dev search page.',
-                  'title': 'Navigate to the docs.flutter.dev search page.',
+                  'title': "Navigate to JianDe's GSoC26 search page.",
+                  'aria-label': "Navigate to JianDe's GSoC26 search page.",
                 },
                 [
                   MaterialIcon('search'),
@@ -158,13 +155,13 @@ class _NavItem extends StatelessComponent {
 _ActiveNavEntry? _activeNavEntry(String pageUrlPath) {
   final normalizedPath = pageUrlPath.toLowerCase();
 
-  if (normalizedPath == '/' || normalizedPath.startsWith('/bluetooth/overview')) {
+  if (normalizedPath == '/') {
     return _ActiveNavEntry.home;
   }
   if (normalizedPath.startsWith('/bluetooth/')) {
     return _ActiveNavEntry.guides;
   }
-  if (normalizedPath.startsWith('/journal/')) {
+  if (normalizedPath == '/journal' || normalizedPath.startsWith('/journal/')) {
     return _ActiveNavEntry.journal;
   }
 
