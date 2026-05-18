@@ -10,13 +10,13 @@ import 'package:jaspr/server.dart';
 import 'package:jaspr_content/components/callout.dart';
 import 'package:jaspr_content/components/code_block.dart';
 import 'package:jaspr_content/components/image.dart';
-import 'package:jaspr_content/components/sidebar.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
 
 import 'components/clicker.dart';
 import 'components/dart_footer.dart';
 import 'components/flutter_header.dart';
+import 'components/project_sidebar.dart';
 import 'components/search_index.dart';
 
 // This file is generated automatically by Jaspr, do not remove or edit.
@@ -68,31 +68,37 @@ void main() {
         DocsLayout(
           header: const FlutterDocsHeader(),
           footer: const DartStyleFooter(),
-          sidebar: Sidebar(
-            groups: [
-              SidebarGroup(
-                links: [
-                  SidebarLink(text: "Overview", href: '/bluetooth/overview'),
-                ],
-              ),
-              SidebarGroup(
+          sidebar: const ProjectSidebar(
+            links: [
+              ProjectSidebarEntry(text: "Overview", href: '/bluetooth/overview'),
+            ],
+            sections: [
+              ProjectSidebarSection(
                 title: 'Guides',
                 links: [
-                  SidebarLink(text: "Verify BlueZ Stack", href: '/bluetooth/verify-bluez'),
-                  SidebarLink(text: "Profile GATT", href: '/bluetooth/verify-bluez/profile-gatt'),
+                  ProjectSidebarEntry(
+                    text: "Verify BlueZ Stack",
+                    href: '/bluetooth/verify-bluez',
+                    children: [
+                      ProjectSidebarEntry(
+                        text: "Profile GATT",
+                        href: '/bluetooth/verify-bluez/profile-gatt',
+                      ),
+                    ],
+                  ),
                 ],
               ),
-              SidebarGroup(
+              ProjectSidebarSection(
                 title: 'Journal',
                 links: [
-                  SidebarLink(text: "Week 1", href: '/journal/week-1'),
+                  ProjectSidebarEntry(text: "Week 1", href: '/journal/week-1'),
                 ],
               ),
-              SidebarGroup(
+              ProjectSidebarSection(
                 title: 'Report',
                 links: [
-                  SidebarLink(text: "Midterm Report", href: '/report/midterm'),
-                  SidebarLink(text: "Final Report", href: '/report/final'),
+                  ProjectSidebarEntry(text: "Midterm Report", href: '/report/midterm'),
+                  ProjectSidebarEntry(text: "Final Report", href: '/report/final'),
                 ],
               ),
             ],

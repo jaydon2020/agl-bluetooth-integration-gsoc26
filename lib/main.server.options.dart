@@ -22,8 +22,6 @@ import 'package:jaspr_content/components/_internal/zoomable_image.dart'
 import 'package:jaspr_content/components/callout.dart' as _callout;
 import 'package:jaspr_content/components/code_block.dart' as _code_block;
 import 'package:jaspr_content/components/image.dart' as _image;
-import 'package:jaspr_content/components/sidebar_toggle_button.dart'
-    as _sidebar_toggle_button;
 
 /// Default [ServerOptions] for use with your Jaspr project.
 ///
@@ -72,10 +70,6 @@ ServerOptions get defaultServerOptions => ServerOptions(
       'jaspr_content:zoomable_image',
       params: __zoomable_imageZoomableImage,
     ),
-    _sidebar_toggle_button.SidebarToggleButton:
-        ClientTarget<_sidebar_toggle_button.SidebarToggleButton>(
-          'jaspr_content:sidebar_toggle_button',
-        ),
   },
   styles: () => [
     ..._clicker.ClickerState.styles,
