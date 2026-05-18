@@ -1,65 +1,54 @@
 ---
-title: Welcome to Your New Docs Site!
-description: A placeholder page for your new documentation site.
+title: AGL Bluetooth Integration — GSoC 2026
+description: JianDe's GSoC26 project portfolio for modern Bluetooth integration in Automotive Grade Linux.
 ---
 
-This is the starting point for your brand new documentation site, powered by the awesome `jaspr_content` package! Jaspr Content makes it easy to create beautiful and functional documentation. You can learn more about its features by visiting the [official documentation]({{links.docs}}).
+<section class="home-hero">
+  <div class="home-hero-copy">
+    <p class="hero-eyebrow">JianDe's GSoC26</p>
+    <h2>Modern Bluetooth for the AGL Flutter IVI stack</h2>
+    <p>
+      This project documents a modern Bluetooth integration path for Automotive Grade Linux,
+      replacing legacy afb-daemon mappings with a native C++ D-Bus bridge to BlueZ and a
+      Flutter-facing API for the IVI experience.
+    </p>
+    <p>
+      The validation path focuses on BlueZ, PipeWire, WirePlumber, and profile-oriented
+      smoke tests on Raspberry Pi 5 hardware.
+    </p>
+  </div>
+  <div class="home-hero-card">
+    <p class="hero-eyebrow">Stack focus</p>
+    <ul>
+      <li>BlueZ over D-Bus for adapter and device lifecycle</li>
+      <li>PipeWire and WirePlumber for Bluetooth audio routing</li>
+      <li>Flutter plugin architecture for the AGL homescreen</li>
+      <li>Repeatable GSoC validation and reporting workflow</li>
+    </ul>
+  </div>
+</section>
 
-## Getting Started
+<div class="quick-card-grid">
+  <a class="quick-card" href="/bluetooth/overview">
+    <span class="material-symbols" aria-hidden="true" translate="no">architecture</span>
+    <strong>Architecture Overview</strong>
+    <span>Read the project motivation, mentor context, and proposed system architecture.</span>
+  </a>
+  <a class="quick-card" href="/bluetooth/verify-bluez">
+    <span class="material-symbols" aria-hidden="true" translate="no">fact_check</span>
+    <strong>BlueZ Verification</strong>
+    <span>Run profile-oriented smoke tests for the Linux Bluetooth stack.</span>
+  </a>
+  <a class="quick-card" href="/journal">
+    <span class="material-symbols" aria-hidden="true" translate="no">timeline</span>
+    <strong>Weekly Progress Journal</strong>
+    <span>Follow week-by-week implementation notes and next steps.</span>
+  </a>
+  <a class="quick-card" href="/report/midterm">
+    <span class="material-symbols" aria-hidden="true" translate="no">assignment</span>
+    <strong>Milestones</strong>
+    <span>Track midterm and final report readiness.</span>
+  </a>
+</div>
 
-Here are a few things you can do to begin:
-
-*   Explore the features of `jaspr_content` inside `lib/main.server.dart`.
-*   Read the [Quick Start Guide]({{links.quickstart}}) to understand how to set up your your content-driven site.
-*   Start adding your own content pages in the `content/` directory.
-
-## Showcase
-
-`jaspr_content` supports all standard markdown syntax, allowing you to format your content effectively. It also supports adding custom components like this one:
-
-<Info>
-  This is an example of a custom component. You can create your own or use the ones provided by `jaspr_content` to enhance your documentation!
-
-  <Clicker/>
-</Info>
-
-### Inline Elements
-
-Use `inline code` for brief mentions of code, **bold text** for emphasis, or *italic text* for highlighting. You can also create [links to external sites]({{links.website}}).
-
-### Blockquotes
-
-> This is a blockquote. It's great for highlighting important information or quotes.
-> It has a custom color applied to it using `jaspr_content`s theming capabilities.
-
-### Code Blocks
-
-You can easily include code snippets. `jaspr_content` even comes with syntax highlighting and copy functionality out of the box.
-
-```dart
-// lib/main.server.dart
-import 'package:jaspr/jaspr.dart';
-import 'package:jaspr_content/jaspr_content.dart';
-
-void main() {
-  runApp(ContentApp(
-    parsers: [
-      MarkdownParser(),
-    ],
-  ));
-}
-```
-
-## Images
-
-Displaying images is straightforward:
-
-![Jasper Photo](https://jaspr.site/images/jasper_resized/17.webp)
-
-You can even **zoom-in** by clicking on the image.
-
-## More to Discover!
-
-This is just a placeholder to get things started. 
-
-Feel free to explore the [Documentation]({{links.docs}}) to understand the underlying architecture and how you can customize your site further.
+<ProjectDashboard/>

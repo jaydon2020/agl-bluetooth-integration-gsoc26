@@ -5,6 +5,7 @@
 library;
 
 // Server-specific Jaspr import.
+import 'package:jaspr/dom.dart' show Color;
 import 'package:jaspr/server.dart';
 
 import 'package:jaspr_content/components/callout.dart';
@@ -16,6 +17,8 @@ import 'package:jaspr_content/theme.dart';
 import 'components/clicker.dart';
 import 'components/dart_footer.dart';
 import 'components/flutter_header.dart';
+import 'components/profile_matrix.dart';
+import 'components/project_dashboard.dart';
 import 'components/project_sidebar.dart';
 import 'components/search_index.dart';
 
@@ -60,6 +63,14 @@ void main() {
           pattern: 'SearchIndex',
           builder: (_, _, _) => const SearchIndex(),
         ),
+        CustomComponent(
+          pattern: 'ProjectDashboard',
+          builder: (_, _, _) => const ProjectDashboard(),
+        ),
+        CustomComponent(
+          pattern: 'ProfileMatrix',
+          builder: (_, _, _) => const ProfileMatrix(),
+        ),
         // Adds zooming and caption support to images.
         Image(zoom: true),
       ],
@@ -91,7 +102,13 @@ void main() {
               ProjectSidebarSection(
                 title: 'Journal',
                 links: [
-                  ProjectSidebarEntry(text: "Week 1", href: '/journal/week-1'),
+                  ProjectSidebarEntry(
+                    text: "Journal Overview",
+                    href: '/journal',
+                    children: [
+                      ProjectSidebarEntry(text: "Week 1", href: '/journal/week-1'),
+                    ],
+                  ),
                 ],
               ),
               ProjectSidebarSection(
@@ -107,10 +124,10 @@ void main() {
       ],
       theme: ContentTheme(
         // Customizes the default theme colors.
-        primary: ThemeColor(ThemeColors.blue.$500, dark: ThemeColors.blue.$300),
+        primary: const ThemeColor(Color('#00A63F'), dark: Color('#4ADE80')),
         background: ThemeColor(ThemeColors.slate.$50, dark: ThemeColors.zinc.$950),
         colors: [
-          ContentColors.quoteBorders.apply(ThemeColors.blue.$400),
+          ContentColors.quoteBorders.apply(const Color('#00A63F')),
         ],
       ),
     ),
