@@ -85,6 +85,13 @@ void main() {
                   SidebarLink(text: "Get Started", href: '/get-started/quick'),
                 ],
               ),
+              SidebarGroup(
+                title: 'Bluetooth Integration',
+                links: [
+                  SidebarLink(text: "Overview", href: '/bluetooth/overview'),
+                  SidebarLink(text: "Verify BlueZ", href: '/bluetooth/verify-bluez'),
+                ],
+              ),
             ],
           ),
         ),
