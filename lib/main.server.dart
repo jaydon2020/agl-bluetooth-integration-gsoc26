@@ -70,26 +70,29 @@ void main() {
           footer: const DartStyleFooter(),
           sidebar: Sidebar(
             groups: [
-              // Adds navigation links to the sidebar.
               SidebarGroup(
-                links: [
-                  SidebarLink(text: "Overview", href: '/'),
-                  SidebarLink(text: "Learn", href: '/learn'),
-                  SidebarLink(text: "Search", href: '/search'),
-                ],
-              ),
-              SidebarGroup(
-                title: 'Content',
-                links: [
-                  SidebarLink(text: "About", href: '/about'),
-                  SidebarLink(text: "Get Started", href: '/get-started/quick'),
-                ],
-              ),
-              SidebarGroup(
-                title: 'Bluetooth Integration',
                 links: [
                   SidebarLink(text: "Overview", href: '/bluetooth/overview'),
-                  SidebarLink(text: "Verify BlueZ", href: '/bluetooth/verify-bluez'),
+                ],
+              ),
+              SidebarGroup(
+                title: 'Guides',
+                links: [
+                  SidebarLink(text: "Verify BlueZ Stack", href: '/bluetooth/verify-bluez'),
+                  SidebarLink(text: "Profile GATT", href: '/bluetooth/profile-gatt'),
+                ],
+              ),
+              SidebarGroup(
+                title: 'Journal',
+                links: [
+                  SidebarLink(text: "Week 1", href: '/journal/week-1'),
+                ],
+              ),
+              SidebarGroup(
+                title: 'Report',
+                links: [
+                  SidebarLink(text: "Midterm Report", href: '/report/midterm'),
+                  SidebarLink(text: "Final Report", href: '/report/final'),
                 ],
               ),
             ],

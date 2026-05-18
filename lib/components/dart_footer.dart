@@ -150,12 +150,10 @@ final class _SocialSvg extends StatelessComponent {
         'focusable': 'false',
       },
       [
-        Component.element(
-          tag: 'path',
-          attributes: {
-            'd': icon.path,
-            'fill': 'currentColor',
-          },
+        path(
+          [],
+          d: icon.path,
+          attributes: {'fill': 'currentColor'},
         ),
       ],
     );
