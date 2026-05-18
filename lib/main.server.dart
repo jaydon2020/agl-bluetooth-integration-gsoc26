@@ -79,7 +79,7 @@ void main() {
                 title: 'Guides',
                 links: [
                   SidebarLink(text: "Verify BlueZ Stack", href: '/bluetooth/verify-bluez'),
-                  SidebarLink(text: "Profile GATT", href: '/bluetooth/profile-gatt'),
+                  SidebarLink(text: "Profile GATT", href: '/bluetooth/verify-bluez/profile-gatt'),
                 ],
               ),
               SidebarGroup(

@@ -45,21 +45,21 @@ class FlutterDocsHeader extends StatelessComponent {
           const a(
             id: 'site-primary-logo',
             classes: 'site-wordmark',
-            href: '/',
+            href: '/bluetooth/overview',
             attributes: {
-              'aria-label': 'Go to the Flutter docs homepage.',
-              'title': 'Go to the Flutter docs homepage.',
+              'aria-label': 'Go to the AGL Bluetooth docs home page.',
+              'title': 'Go to the AGL Bluetooth docs home page.',
             },
             [
               img(
-                src: '/assets/images/branding/flutter/logo/default.svg',
-                alt: 'Flutter logo',
+                src: '/images/logo.svg',
+                alt: 'AGL Bluetooth logo',
                 attributes: {'width': '28'},
               ),
               span(
                 classes: 'name',
                 attributes: {'translate': 'no'},
-                [.text('Flutter')],
+                [.text('AGL Bluetooth')],
               ),
               span(
                 classes: 'subtype',
@@ -69,18 +69,19 @@ class FlutterDocsHeader extends StatelessComponent {
           ),
           ul(classes: 'nav-items', [
             _NavItem(
-              href: '/',
+              href: '/bluetooth/overview',
               label: 'Home',
               isActive: activeEntry == _ActiveNavEntry.home,
             ),
             _NavItem(
-              href: '/learn',
-              label: 'Learn',
-              isActive: activeEntry == _ActiveNavEntry.learn,
+              href: '/bluetooth/verify-bluez',
+              label: 'Guides',
+              isActive: activeEntry == _ActiveNavEntry.guides,
             ),
-            const _NavItem(
-              href: 'https://api.flutter.dev',
-              label: 'Reference',
+            _NavItem(
+              href: '/journal/week-1',
+              label: 'Journal',
+              isActive: activeEntry == _ActiveNavEntry.journal,
             ),
           ]),
           div(
@@ -154,23 +155,24 @@ class _NavItem extends StatelessComponent {
   }
 }
 
-_ActiveNavEntry _activeNavEntry(String pageUrlPath) {
-  String? firstFragment;
-  for (final fragment in pageUrlPath.split('/')) {
-    final trimmed = fragment.trim();
-    if (trimmed.isNotEmpty) {
-      firstFragment = trimmed.toLowerCase();
-      break;
-    }
+_ActiveNavEntry? _activeNavEntry(String pageUrlPath) {
+  final normalizedPath = pageUrlPath.toLowerCase();
+
+  if (normalizedPath == '/' || normalizedPath.startsWith('/bluetooth/overview')) {
+    return _ActiveNavEntry.home;
+  }
+  if (normalizedPath.startsWith('/bluetooth/')) {
+    return _ActiveNavEntry.guides;
+  }
+  if (normalizedPath.startsWith('/journal/')) {
+    return _ActiveNavEntry.journal;
   }
 
-  return switch (firstFragment) {
-    'learn' || 'tutorial' => _ActiveNavEntry.learn,
-    _ => _ActiveNavEntry.home,
-  };
+  return null;
 }
 
 enum _ActiveNavEntry {
   home,
-  learn,
+  guides,
+  journal,
 }

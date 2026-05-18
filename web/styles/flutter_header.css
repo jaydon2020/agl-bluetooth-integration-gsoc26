@@ -421,6 +421,18 @@
   background-color: var(--site-primary-color-highlight);
 }
 
+#site-switcher .external-site-link {
+  font-family: var(--site-ui-fontFamily);
+  font-size: 0.95rem;
+  font-weight: 500;
+  min-width: 12rem;
+}
+
+#site-switcher .external-site-icon {
+  color: var(--site-link-fgColor);
+  font-size: 1.25rem;
+}
+
 .dropdown .dropdown-content {
   background-color: var(--site-base-bgColor);
   border: var(--site-outline-variant) 1px solid;
@@ -786,6 +798,21 @@
   text-wrap: pretty;
 }
 
+.docs .sidebar .sidebar-group li a[href="/bluetooth/verify-bluez/profile-gatt"] {
+  color: var(--site-base-fgColor-lighter);
+  font-size: 0.875rem;
+  padding-left: 1.4rem;
+}
+
+.docs .sidebar .sidebar-group li a[href="/bluetooth/verify-bluez/profile-gatt"]::before {
+  background-color: var(--site-outline);
+  border-radius: 999px;
+  content: "";
+  height: 0.35rem;
+  margin-right: 0.5rem;
+  width: 0.35rem;
+}
+
 .docs .sidebar .sidebar-group li a:focus-visible {
   outline: 2px solid var(--site-primary-color);
   outline-offset: 2px;
@@ -978,10 +1005,18 @@
 
 #page-footer .footer-social-links a {
   align-items: center;
+  border: 1px solid rgba(243, 244, 246, .32);
+  border-radius: 999px;
   display: inline-flex;
+  font-weight: 500;
   justify-content: center;
-  padding: 0.25rem;
+  padding: 0.4rem 0.8rem;
   text-align: center;
+}
+
+#page-footer .footer-social-links a:hover {
+  border-color: rgba(243, 244, 246, .72);
+  background-color: rgba(255, 255, 255, .06);
 }
 
 #page-footer .footer-social-links svg {

@@ -3,6 +3,10 @@ import 'package:jaspr/jaspr.dart';
 
 import 'header_controls.dart';
 
+const _gsocProjectUrl = 'https://summerofcode.withgoogle.com/programs/2026/projects/jkzcDIbh';
+const _githubUrl = 'https://github.com/jaydon2020/agl-bluetooth-integration-gsoc26';
+const _aglLinuxUrl = 'https://www.automotivelinux.org/';
+
 @client
 final class FlutterSiteSwitcher extends StatelessComponent {
   const FlutterSiteSwitcher({super.key});
@@ -17,45 +21,20 @@ final class FlutterSiteSwitcher extends StatelessComponent {
         attributes: {'role': 'menu'},
         [
           ul([
-            _SiteWordMarkListEntry(
-              name: 'Flutter',
-              href: 'https://flutter.dev',
+            _ExternalSiteLinkEntry(
+              icon: 'school',
+              label: 'GSoC Project',
+              href: _gsocProjectUrl,
             ),
-            _SiteWordMarkListEntry(
-              name: 'Flutter',
-              subtype: 'Docs',
-              href: '/',
-              current: true,
+            _ExternalSiteLinkEntry(
+              icon: 'code',
+              label: 'GitHub',
+              href: _githubUrl,
             ),
-            _SiteWordMarkListEntry(
-              name: 'Flutter',
-              subtype: 'API',
-              href: 'https://api.flutter.dev',
-            ),
-            _SiteWordMarkListEntry(
-              name: 'Flutter',
-              subtype: 'Blog',
-              href: 'https://blog.flutter.dev',
-            ),
-            Component.element(
-              tag: 'li',
-              classes: 'dropdown-divider',
-              attributes: {'aria-hidden': 'true', 'role': 'separator'},
-            ),
-            _SiteWordMarkListEntry(
-              name: 'Dart',
-              href: 'https://dart.dev',
-              dart: true,
-            ),
-            _SiteWordMarkListEntry(
-              name: 'DartPad',
-              href: 'https://dartpad.dev',
-              dart: true,
-            ),
-            _SiteWordMarkListEntry(
-              name: 'pub.dev',
-              href: 'https://pub.dev',
-              dart: true,
+            _ExternalSiteLinkEntry(
+              icon: 'directions_car',
+              label: 'AGL Linux',
+              href: _aglLinuxUrl,
             ),
           ]),
         ],
@@ -64,22 +43,16 @@ final class FlutterSiteSwitcher extends StatelessComponent {
   }
 }
 
-class _SiteWordMarkListEntry extends StatelessComponent {
-  const _SiteWordMarkListEntry({
+class _ExternalSiteLinkEntry extends StatelessComponent {
+  const _ExternalSiteLinkEntry({
     required this.href,
-    required this.name,
-    this.subtype,
-    this.current = false,
-    this.dart = false,
+    required this.icon,
+    required this.label,
   });
 
-  final bool dart;
   final String href;
-  final String name;
-  final String? subtype;
-  final bool current;
-
-  String get _combinedName => '$name${subtype != null ? ' $subtype' : ''}';
+  final String icon;
+  final String label;
 
   @override
   Component build(BuildContext context) {
@@ -88,38 +61,17 @@ class _SiteWordMarkListEntry extends StatelessComponent {
       [
         a(
           href: href,
-          classes: headerClasses([
-            'site-wordmark',
-            if (current) 'current-site',
-          ]),
+          classes: 'external-site-link',
           attributes: {
             'role': 'menuitem',
-            'title': 'Navigate to the $_combinedName website.',
-            'aria-label': 'Navigate to the $_combinedName website.',
+            'target': '_blank',
+            'rel': 'noopener',
+            'title': 'Open $label.',
+            'aria-label': 'Open $label.',
           },
           [
-            if (dart)
-              const img(
-                src: '/assets/images/branding/dart/logo.svg',
-                alt: 'Dart logo',
-                attributes: {'width': '28', 'height': '28'},
-              )
-            else
-              const img(
-                src: '/assets/images/branding/flutter/logo/default.svg',
-                alt: 'Flutter logo',
-                attributes: {'width': '28'},
-              ),
-            span(
-              classes: 'name',
-              attributes: {'translate': 'no'},
-              [.text(name)],
-            ),
-            if (subtype != null)
-              span(
-                classes: 'subtype',
-                [.text(subtype!)],
-              ),
+            MaterialIcon(icon, classes: const ['external-site-icon']),
+            span([.text(label)]),
           ],
         ),
       ],

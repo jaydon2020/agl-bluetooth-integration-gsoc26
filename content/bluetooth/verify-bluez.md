@@ -5,6 +5,8 @@ description: Minimal smoke tests for validating BlueZ on an AGL/Raspberry Pi 5 t
 
 Use this page to run a focused BlueZ smoke test on an AGL image. The goal is not to cover every Bluetooth profile. The goal is to prove that the platform can bring up the adapter, discover a phone or headset, pair and trust it, connect it, and observe the first audio and media-control signals needed by the AGL Bluetooth integration project.
 
+For profile-specific BLE notes, see the [Profile GATT](/bluetooth/verify-bluez/profile-gatt) subpage.
+
 ## Prerequisites
 
 Before starting, prepare the target and a nearby Bluetooth device.
