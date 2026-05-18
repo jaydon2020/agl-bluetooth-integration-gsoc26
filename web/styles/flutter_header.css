@@ -649,6 +649,34 @@
   padding: 1rem;
 }
 
+.report-upcoming-card {
+  background-color: var(--site-primary-color-highlight);
+  border: 1px solid var(--site-outline-variant);
+  border-left: 4px solid var(--site-link-fgColor);
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  max-width: 48rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.report-upcoming-card h2 {
+  margin-top: 0;
+}
+
+.report-upcoming-card p:last-child {
+  margin-bottom: 0;
+}
+
+.report-upcoming-eyebrow {
+  color: var(--site-link-fgColor);
+  font-family: var(--site-ui-fontFamily);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
 .docs {
   overflow-x: clip;
 }

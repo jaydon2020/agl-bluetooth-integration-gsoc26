@@ -1,28 +1,18 @@
 ---
 title: Midterm Report
-description: Midterm report outline for the AGL Bluetooth Integration project.
+description: Upcoming midterm report for the AGL Bluetooth Integration project.
 ---
 
-Use this page as the working outline for the midterm report.
-
-## Summary
-
-The midterm report should explain what has been implemented, what has been validated on AGL hardware, and what remains for the second half of the project.
-
-## Suggested Sections
-
-- Project goals and scope.
-- Baseline AGL and Raspberry Pi 5 setup.
-- BlueZ verification results.
-- Flutter plugin architecture.
-- Audio routing status with PipeWire and WirePlumber.
-- Risks, blockers, and scope adjustments.
-- Plan for final delivery.
-
-## Evidence To Include
-
-- Commands used for validation.
-- Screenshots or logs from successful pairing and connection.
-- D-Bus object examples from BlueZ.
-- PipeWire node output for Bluetooth audio.
-- Links to merged commits or active branches.
+<div class="report-upcoming-card">
+  <p class="report-upcoming-eyebrow">Upcoming</p>
+  <h2>Midterm report is not ready yet</h2>
+  <p>
+    This page will be published after the midterm milestone has enough implementation
+    notes, validation logs, and review feedback to summarize accurately.
+  </p>
+  <p>
+    Expected content includes project scope, AGL/Raspberry Pi 5 setup, BlueZ
+    verification results, plugin architecture progress, risks, and the plan for
+    final delivery.
+  </p>
+</div>

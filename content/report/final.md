@@ -1,29 +1,18 @@
 ---
 title: Final Report
-description: Final report outline for the AGL Bluetooth Integration project.
+description: Upcoming final report for the AGL Bluetooth Integration project.
 ---
 
-Use this page as the working outline for the final project report.
-
-## Summary
-
-The final report should describe the completed Bluetooth integration, the validation evidence, and the remaining work that future contributors can continue.
-
-## Suggested Sections
-
-- Final project scope.
-- Architecture overview.
-- BlueZ integration details.
-- Flutter plugin API and UI behavior.
-- A2DP and AVRCP validation results.
-- HFP, PBAP, MAP, and GATT status.
-- Known limitations.
-- Future work.
-
-## Deliverables
-
-- Yocto integration notes.
-- Native plugin implementation notes.
-- Flutter API and state-management notes.
-- Validation logs and repeatable test steps.
-- Links to source code, documentation, and demo material.
+<div class="report-upcoming-card">
+  <p class="report-upcoming-eyebrow">Upcoming</p>
+  <h2>Final report is not ready yet</h2>
+  <p>
+    This page will be completed near the end of the project, after the final
+    deliverables and validation evidence are available.
+  </p>
+  <p>
+    Expected content includes the final architecture, BlueZ integration details,
+    Flutter plugin behavior, A2DP and AVRCP validation, known limitations, and
+    follow-up work for HFP, PBAP, MAP, and GATT.
+  </p>
+</div>
