@@ -17,14 +17,14 @@ final class DartStyleFooter extends StatelessComponent {
         div(classes: 'footer-section footer-main', [
           a(
             classes: 'brand',
-            href: '/',
+            href: './',
             attributes: {
               'aria-label': "Go to JianDe's GSoC26 home page.",
               'title': "JianDe's GSoC26",
             },
             [
               const img(
-                src: '/images/gsoc-sun.svg',
+                src: 'images/gsoc-sun.svg',
                 alt: 'Google Summer of Code sun logo',
                 attributes: {'width': '42'},
               ),
@@ -67,25 +67,25 @@ final class DartStyleFooter extends StatelessComponent {
             ul([
               li([
                 a(
-                  href: '/',
+                  href: './',
                   [.text('Home')],
                 ),
               ]),
               li([
                 a(
-                  href: '/bluetooth/verify-bluez',
+                  href: 'bluetooth/verify-bluez',
                   [.text('Guides')],
                 ),
               ]),
               li([
                 a(
-                  href: '/journal',
+                  href: 'journal',
                   [.text('Journal')],
                 ),
               ]),
               li([
                 a(
-                  href: '/report/midterm',
+                  href: 'report/midterm',
                   [.text('Report')],
                 ),
               ]),
