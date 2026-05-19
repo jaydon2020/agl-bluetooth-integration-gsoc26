@@ -1698,24 +1698,11 @@
   }
 }
 
-/* Overrides for homepage (has no sidebar and no TOC) */
-@media (min-width: 1024px) {
-  .docs .main-container main > div:has(.home-hero) .content-footer {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
+/* Overrides for pages with sidebar but no TOC (homepage and journal timeline overview) */
 @media (min-width: 1280px) {
-  .docs .main-container main > div:has(.home-hero) .content-footer {
-    margin-right: 0;
-  }
-}
-
-/* Overrides for journal timeline overview (has sidebar but no TOC) */
-@media (min-width: 1280px) {
+  .docs .main-container main > div:has(.home-hero) .content-footer,
   .docs .main-container main > div:has(.journal-timeline) .content-footer {
-    margin-right: -1.25rem;
+    margin-right: -3rem;
   }
 }
 
