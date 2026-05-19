@@ -925,11 +925,6 @@
   --sponsor-logo-surface-bg: transparent;
 }
 
-:root[data-theme="dark"] .sponsor-logo {
-  filter: invert(1) grayscale(1) brightness(2);
-  mix-blend-mode: screen;
-}
-
 .docs .content a.sponsor-logo-card,
 .docs .content a.sponsor-logo-card:hover,
 .docs .content a.sponsor-logo-card:focus {
@@ -961,8 +956,9 @@
 }
 
 .sponsor-logo-gsoc {
-  background-image: url('/images/gsoc-horizontal.png');
-  width: 16rem;
+  background-image: url('/images/gsoc-horizontal.svg');
+  width: 18rem;
+  height: 4.5rem;
 }
 
 .sponsor-logo-linux-foundation {
@@ -1702,6 +1698,27 @@
   }
 }
 
+/* Overrides for homepage (has no sidebar and no TOC) */
+@media (min-width: 1024px) {
+  .docs .main-container main > div:has(.home-hero) .content-footer {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1280px) {
+  .docs .main-container main > div:has(.home-hero) .content-footer {
+    margin-right: 0;
+  }
+}
+
+/* Overrides for journal timeline overview (has sidebar but no TOC) */
+@media (min-width: 1280px) {
+  .docs .main-container main > div:has(.journal-timeline) .content-footer {
+    margin-right: -1.25rem;
+  }
+}
+
 .docs .main-container main > div:has(.home-hero) .content-footer,
 .docs .main-container main > div:has(.journal-timeline) .content-footer {
   margin-top: 2rem !important;
@@ -1726,29 +1743,19 @@
 #page-footer {
   background-color: var(--site-chrome-bgColor);
   box-sizing: border-box;
-  box-shadow: 0 0 0 100vmax var(--site-chrome-bgColor);
-  clip-path: inset(0 -100vmax);
   color: var(--site-chrome-fgColor);
   font-family: var(--site-ui-fontFamily);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.45;
-  margin-inline: -1rem;
   padding: 1.5rem;
   position: relative;
-}
-
-@media (min-width: 768px) {
-  #page-footer {
-    margin-inline: 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  #page-footer {
-    max-width: 100vw;
-    width: 100vw;
-  }
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw;
 }
 
 #page-footer::before {
@@ -1757,9 +1764,8 @@
   height: 3px;
   inset: 0 0 auto;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
+  left: 0;
+  right: 0;
 }
 
 #page-footer a {
