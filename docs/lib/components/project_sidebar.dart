@@ -185,5 +185,6 @@ String _classes(List<String?> classes) {
 
 String _normalizeRoute(String route) {
   if (route == '/') return route;
-  return route.endsWith('/') ? route.substring(0, route.length - 1) : route;
+  final absoluteRoute = route.startsWith('/') ? route : '/$route';
+  return absoluteRoute.endsWith('/') ? absoluteRoute.substring(0, absoluteRoute.length - 1) : absoluteRoute;
 }

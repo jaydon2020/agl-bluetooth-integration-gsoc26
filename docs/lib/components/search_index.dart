@@ -54,6 +54,7 @@ String _plainText(String content) {
   return content
       .replaceAll(RegExp(r'^---[\s\S]*?---', multiLine: true), ' ')
       .replaceAll(RegExp(r'```[\s\S]*?```'), ' ')
+      .replaceAll(RegExp(r'<(?:script|style)[\s\S]*?</(?:script|style)>', caseSensitive: false), ' ')
       .replaceAll(RegExp(r'<[^>]+>'), ' ')
       .replaceAll(RegExp(r'[#*_>`\[\]()]'), ' ')
       .replaceAll(RegExp(r'\s+'), ' ')
