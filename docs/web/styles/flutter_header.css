@@ -922,7 +922,12 @@
   --sponsor-logo-card-bg: #0b1220;
   --sponsor-logo-card-border: rgba(148, 163, 184, .28);
   --sponsor-logo-card-shadow: rgba(0, 0, 0, .28);
-  --sponsor-logo-surface-bg: #ffffff;
+  --sponsor-logo-surface-bg: transparent;
+}
+
+:root[data-theme="dark"] .sponsor-logo {
+  filter: invert(1) grayscale(1) brightness(2);
+  mix-blend-mode: screen;
 }
 
 .docs .content a.sponsor-logo-card,
@@ -1703,7 +1708,8 @@
   padding-top: 0;
 }
 
-.docs .main-container main > div:has(.home-hero) .content-footer {
+.docs .main-container main > div:has(.home-hero) .content-footer,
+.docs .main-container main > div:has(.journal-timeline) .content-footer {
   background-color: var(--site-chrome-bgColor);
   box-shadow: 0 0 0 100vmax var(--site-chrome-bgColor);
   clip-path: inset(0 -100vmax);
@@ -1712,7 +1718,8 @@
   flex-direction: column;
 }
 
-.docs .main-container main > div:has(.home-hero) .content-footer #page-footer {
+.docs .main-container main > div:has(.home-hero) .content-footer #page-footer,
+.docs .main-container main > div:has(.journal-timeline) .content-footer #page-footer {
   flex: 1 0 auto;
 }
 
@@ -1750,6 +1757,9 @@
   height: 3px;
   inset: 0 0 auto;
   position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
 }
 
 #page-footer a {

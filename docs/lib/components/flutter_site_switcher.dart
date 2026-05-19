@@ -1,11 +1,8 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
+import 'constants.dart';
 import 'header_controls.dart';
-
-const _gsocProjectUrl = 'https://summerofcode.withgoogle.com/programs/2026/projects/jkzcDIbh';
-const _githubUrl = 'https://github.com/jaydon2020/agl-bluetooth-integration-gsoc26';
-const _aglLinuxUrl = 'https://www.automotivelinux.org/';
 
 @client
 final class FlutterSiteSwitcher extends StatelessComponent {
@@ -24,17 +21,17 @@ final class FlutterSiteSwitcher extends StatelessComponent {
             _ExternalSiteLinkEntry(
               icon: 'school',
               label: 'GSoC Project',
-              href: _gsocProjectUrl,
+              href: gsocProjectUrl,
             ),
             _ExternalSiteLinkEntry(
               icon: 'code',
               label: 'GitHub',
-              href: _githubUrl,
+              href: githubUrl,
             ),
             _ExternalSiteLinkEntry(
               icon: 'directions_car',
               label: 'AGL Linux',
-              href: _aglLinuxUrl,
+              href: aglLinuxUrl,
             ),
           ]),
         ],

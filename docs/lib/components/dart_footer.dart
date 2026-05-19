@@ -1,9 +1,8 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-const _gsocProjectUrl = 'https://summerofcode.withgoogle.com/programs/2026/projects/jkzcDIbh';
-const _githubUrl = 'https://github.com/jaydon2020/agl-bluetooth-integration-gsoc26';
-const _aglLinuxUrl = 'https://www.automotivelinux.org/';
+import 'brand_logo.dart';
+import 'constants.dart';
 
 final class DartStyleFooter extends StatelessComponent {
   const DartStyleFooter({super.key});
@@ -16,21 +15,9 @@ final class DartStyleFooter extends StatelessComponent {
       [
         div(classes: 'footer-shell', [
           div(classes: 'footer-brand-panel', [
-            a(
+            const BrandLogo(
               classes: 'brand',
-              href: '/',
-              attributes: {
-                'aria-label': "Go to JianDe's GSoC26 home page.",
-                'title': "JianDe's GSoC26",
-              },
-              [
-                const img(
-                  src: '/images/gsoc-sun.svg',
-                  alt: 'Google Summer of Code sun logo',
-                  attributes: {'width': '42'},
-                ),
-                span([.text("JianDe's GSoC26")]),
-              ],
+              size: 42,
             ),
             p([
               .text(
@@ -44,15 +31,15 @@ final class DartStyleFooter extends StatelessComponent {
             [
               div(classes: 'footer-social-links', [
                 const _FooterExternalLink(
-                  href: _gsocProjectUrl,
+                  href: gsocProjectUrl,
                   label: 'GSoC Project',
                 ),
                 const _FooterExternalLink(
-                  href: _githubUrl,
+                  href: githubUrl,
                   label: 'GitHub',
                 ),
                 const _FooterExternalLink(
-                  href: _aglLinuxUrl,
+                  href: aglLinuxUrl,
                   label: 'AGL Linux',
                 ),
               ]),

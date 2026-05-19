@@ -2,6 +2,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 
+import 'brand_logo.dart';
 import 'flutter_menu_toggle.dart';
 import 'flutter_site_switcher.dart';
 import 'flutter_theme_switcher.dart';
@@ -42,26 +43,11 @@ class FlutterDocsHeader extends StatelessComponent {
       ),
       header(id: 'site-header', [
         nav(classes: 'navbar', [
-          const a(
-            id: 'site-primary-logo',
+          const BrandLogo(
             classes: 'site-wordmark',
-            href: '/',
-            attributes: {
-              'aria-label': "Go to JianDe's GSoC26 home page.",
-              'title': "Go to JianDe's GSoC26 home page.",
-            },
-            [
-              img(
-                src: '/images/gsoc-sun.svg',
-                alt: 'Google Summer of Code sun logo',
-                attributes: {'width': '28'},
-              ),
-              span(
-                classes: 'name',
-                attributes: {'translate': 'no'},
-                [.text("JianDe's GSoC26")],
-              ),
-            ],
+            id: 'site-primary-logo',
+            size: 28,
+            spanClasses: 'name',
           ),
           ul(classes: 'nav-items', [
             _NavItem(
