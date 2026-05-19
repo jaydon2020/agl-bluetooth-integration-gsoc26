@@ -956,17 +956,17 @@
 }
 
 .sponsor-logo-gsoc {
-  background-image: url('/images/gsoc-horizontal.svg');
+  background-image: url('../images/gsoc-horizontal.svg');
   width: 18rem;
   height: 4.5rem;
 }
 
 .sponsor-logo-linux-foundation {
-  background-image: url('/images/linux-foundation-color.svg');
+  background-image: url('../images/linux-foundation-color.svg');
 }
 
 .sponsor-logo-agl {
-  background-image: url('/images/agl-logo-color.png');
+  background-image: url('../images/agl-logo-color.png');
 }
 
 .sponsor-logo-card-gsoc {

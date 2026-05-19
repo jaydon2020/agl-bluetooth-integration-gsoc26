@@ -81,7 +81,7 @@ void main() {
           footer: const DartStyleFooter(),
           sidebar: const ProjectSidebar(
             links: [
-              ProjectSidebarEntry(text: "Home", href: '/'),
+              ProjectSidebarEntry(text: "Home", href: './'),
             ],
             sections: [
               ProjectSidebarSection(
@@ -89,15 +89,15 @@ void main() {
                 links: [
                   ProjectSidebarEntry(
                     text: "Architecture Overview",
-                    href: '/bluetooth/overview',
+                    href: 'bluetooth/overview',
                   ),
                   ProjectSidebarEntry(
                     text: "Verify BlueZ Stack",
-                    href: '/bluetooth/verify-bluez',
+                    href: 'bluetooth/verify-bluez',
                     children: [
                       ProjectSidebarEntry(
                         text: "Profile GATT",
-                        href: '/bluetooth/verify-bluez/profile-gatt',
+                        href: 'bluetooth/verify-bluez/profile-gatt',
                       ),
                     ],
                   ),
@@ -108,9 +108,9 @@ void main() {
                 links: [
                   ProjectSidebarEntry(
                     text: "Journal Overview",
-                    href: '/journal',
+                    href: 'journal',
                     children: [
-                      ProjectSidebarEntry(text: "Week 1", href: '/journal/week-1'),
+                      ProjectSidebarEntry(text: "Week 1", href: 'journal/week-1'),
                     ],
                   ),
                 ],
@@ -118,8 +118,8 @@ void main() {
               ProjectSidebarSection(
                 title: 'Report',
                 links: [
-                  ProjectSidebarEntry(text: "Midterm Report", href: '/report/midterm'),
-                  ProjectSidebarEntry(text: "Final Report", href: '/report/final'),
+                  ProjectSidebarEntry(text: "Midterm Report", href: 'report/midterm'),
+                  ProjectSidebarEntry(text: "Final Report", href: 'report/final'),
                 ],
               ),
             ],

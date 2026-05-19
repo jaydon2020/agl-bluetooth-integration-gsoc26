@@ -37,7 +37,7 @@ class FlutterDocsHeader extends StatelessComponent {
           ),
           const link(
             rel: 'stylesheet',
-            href: '/styles/flutter_header.css',
+            href: 'styles/flutter_header.css',
           ),
         ],
       ),
@@ -51,17 +51,17 @@ class FlutterDocsHeader extends StatelessComponent {
           ),
           ul(classes: 'nav-items', [
             _NavItem(
-              href: '/',
+              href: './',
               label: 'Home',
               isActive: activeEntry == _ActiveNavEntry.home,
             ),
             _NavItem(
-              href: '/bluetooth/verify-bluez',
+              href: 'bluetooth/verify-bluez',
               label: 'Guides',
               isActive: activeEntry == _ActiveNavEntry.guides,
             ),
             _NavItem(
-              href: '/journal',
+              href: 'journal',
               label: 'Journal',
               isActive: activeEntry == _ActiveNavEntry.journal,
             ),
@@ -70,7 +70,7 @@ class FlutterDocsHeader extends StatelessComponent {
             classes: 'navbar-contents',
             [
               const form(
-                action: '/search/',
+                action: 'search/',
                 id: 'header-search',
                 attributes: {'role': 'search'},
                 [
@@ -90,7 +90,7 @@ class FlutterDocsHeader extends StatelessComponent {
               const a(
                 id: 'fallback-search-button',
                 classes: 'icon-button',
-                href: '/search',
+                href: 'search',
                 attributes: {
                   'title': "Navigate to JianDe's GSoC26 search page.",
                   'aria-label': "Navigate to JianDe's GSoC26 search page.",
