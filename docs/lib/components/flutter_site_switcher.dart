@@ -19,17 +19,18 @@ final class FlutterSiteSwitcher extends StatelessComponent {
         [
           ul([
             _ExternalSiteLinkEntry(
-              icon: 'school',
+              logo: 'images/gsoc-sun.svg',
               label: 'GSoC Project',
               href: gsocProjectUrl,
             ),
             _ExternalSiteLinkEntry(
-              icon: 'code',
+              logo: 'images/github-mark.svg',
               label: 'GitHub',
               href: githubUrl,
             ),
             _ExternalSiteLinkEntry(
-              icon: 'directions_car',
+              logo: 'https://wiki.automotivelinux.org/_media/wiki/logo.png',
+              logoWide: true,
               label: 'AGL Linux',
               href: aglLinuxUrl,
             ),
@@ -43,13 +44,15 @@ final class FlutterSiteSwitcher extends StatelessComponent {
 class _ExternalSiteLinkEntry extends StatelessComponent {
   const _ExternalSiteLinkEntry({
     required this.href,
-    required this.icon,
     required this.label,
+    required this.logo,
+    this.logoWide = false,
   });
 
   final String href;
-  final String icon;
   final String label;
+  final String logo;
+  final bool logoWide;
 
   @override
   Component build(BuildContext context) {
@@ -67,7 +70,14 @@ class _ExternalSiteLinkEntry extends StatelessComponent {
             'aria-label': 'Open $label.',
           },
           [
-            MaterialIcon(icon, classes: const ['external-site-icon']),
+            span(classes: logoWide ? 'external-site-logo-frame wide-logo' : 'external-site-logo-frame', [
+              img(
+                src: logo,
+                alt: '',
+                classes: 'external-site-logo',
+                attributes: {'aria-hidden': 'true'},
+              ),
+            ]),
             span([.text(label)]),
           ],
         ),

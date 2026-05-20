@@ -438,15 +438,45 @@
 }
 
 #site-switcher .external-site-link {
+  align-items: center;
   font-family: var(--site-ui-fontFamily);
-  font-size: 0.95rem;
-  font-weight: 500;
-  min-width: 12rem;
+  font-size: 1rem;
+  font-weight: 600;
+  gap: .75rem;
+  min-height: 3.25rem;
+  min-width: 14rem;
 }
 
-#site-switcher .external-site-icon {
-  color: var(--site-link-fgColor);
-  font-size: 1.25rem;
+#site-switcher .external-site-logo-frame {
+  align-items: center;
+  background-color: var(--site-raised-bgColor);
+  border: 1px solid var(--site-outline-variant);
+  border-radius: .4rem;
+  color: var(--site-base-fgColor);
+  display: inline-flex;
+  flex: 0 0 2.4rem;
+  height: 2.4rem;
+  justify-content: center;
+  overflow: hidden;
+  width: 2.4rem;
+}
+
+#site-switcher .external-site-logo-frame.wide-logo {
+  flex-basis: 4.2rem;
+  width: 4.2rem;
+}
+
+#site-switcher .external-site-logo {
+  display: block;
+  height: 1.75rem;
+  max-width: 1.9rem;
+  object-fit: contain;
+  width: auto;
+}
+
+#site-switcher .wide-logo .external-site-logo {
+  height: 2rem;
+  max-width: 3.75rem;
 }
 
 .dropdown .dropdown-content {
