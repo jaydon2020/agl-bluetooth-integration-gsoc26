@@ -70,22 +70,22 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
 </section>
 
 <div class="quick-card-grid">
-  <a class="quick-card" href="/bluetooth/overview">
+  <a class="quick-card" href="bluetooth/overview">
     <span class="material-symbols" aria-hidden="true" translate="no">architecture</span>
     <strong>Architecture Overview</strong>
     <span>Read the project motivation, mentor context, and proposed system architecture.</span>
   </a>
-  <a class="quick-card" href="/bluetooth/verify-bluez">
+  <a class="quick-card" href="bluetooth/verify-bluez">
     <span class="material-symbols" aria-hidden="true" translate="no">fact_check</span>
     <strong>BlueZ Verification</strong>
     <span>Run profile-oriented smoke tests for the Linux Bluetooth stack.</span>
   </a>
-  <a class="quick-card" href="/journal">
+  <a class="quick-card" href="journal">
     <span class="material-symbols" aria-hidden="true" translate="no">timeline</span>
     <strong>Weekly Progress Journal</strong>
     <span>Follow week-by-week implementation notes and next steps.</span>
   </a>
-  <a class="quick-card" href="/report/midterm">
+  <a class="quick-card" href="report/midterm">
     <span class="material-symbols" aria-hidden="true" translate="no">assignment</span>
     <strong>Milestones</strong>
     <span>Track midterm and final report readiness.</span>

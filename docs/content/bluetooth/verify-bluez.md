@@ -7,7 +7,7 @@ Use this page to run focused BlueZ smoke tests on an AGL image. The Qualcomm Lin
 
 The immediate goal is to prove that the platform can bring up the adapter, discover a phone or headset, pair and trust it, connect it, and observe the first audio and media-control signals needed by the AGL Bluetooth integration project.
 
-For profile-specific BLE notes, see the [Profile GATT](/bluetooth/verify-bluez/profile-gatt) subpage.
+For profile-specific BLE notes, see the [Profile GATT](bluetooth/verify-bluez/profile-gatt) subpage.
 
 ## Reference Profile Matrix
 
@@ -33,7 +33,7 @@ For this project, GAP is the first required smoke test because every higher-leve
 
 GATT is the BLE service framework built on ATT. It is used to discover services and read or write characteristic values on a peer device.
 
-Use the [Profile GATT](/bluetooth/verify-bluez/profile-gatt) subpage for BLE-specific notes. GATT is useful for future profile work, but the first AGL validation milestone remains classic Bluetooth pairing, audio, and media-control behavior.
+Use the [Profile GATT](bluetooth/verify-bluez/profile-gatt) subpage for BLE-specific notes. GATT is useful for future profile work, but the first AGL validation milestone remains classic Bluetooth pairing, audio, and media-control behavior.
 
 ### Human Interface Device Over GATT Profile
 

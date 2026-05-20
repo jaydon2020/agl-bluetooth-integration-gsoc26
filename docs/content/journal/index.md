@@ -36,7 +36,7 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
       <span class="status-badge status-badge-completed">Completed</span>
       <span>Week 1</span>
     </div>
-    <h2><a href="/journal/week-1">Foundation and BlueZ smoke-test planning</a></h2>
+    <h2><a href="journal/week-1">Foundation and BlueZ smoke-test planning</a></h2>
     <p>
       Established the documentation structure, Bluetooth overview, and initial BlueZ
       validation flow for the AGL Raspberry Pi target.

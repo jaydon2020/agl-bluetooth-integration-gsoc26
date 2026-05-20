@@ -20,14 +20,14 @@ class BrandLogo extends StatelessComponent {
     return a(
       id: id,
       classes: classes,
-      href: '/',
+      href: './',
       attributes: {
         'aria-label': "Go to JianDe's GSoC 2026 home page.",
         'title': "JianDe's GSoC 2026",
       },
       [
         img(
-          src: '/images/gsoc-sun.svg',
+          src: 'images/gsoc-sun.svg',
           alt: 'Google Summer of Code sun logo',
           attributes: {'width': size.toString()},
         ),

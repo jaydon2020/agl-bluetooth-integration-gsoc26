@@ -15,6 +15,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: "pages"
@@ -25,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Dart SDK
         uses: dart-lang/setup-dart@v1
@@ -34,8 +37,11 @@ jobs:
 
       - name: Configure base path for GitHub Pages
         run: |
-          echo "" >> docs/content/_data/site.yaml
-          echo "base: /agl-bluetooth-integration-gsoc26/" >> docs/content/_data/site.yaml
+          if grep -q '^base:' docs/content/_data/site.yaml; then
+            sed -i 's|^base:.*|base: /agl-bluetooth-integration-gsoc26/|' docs/content/_data/site.yaml
+          else
+            printf '\nbase: /agl-bluetooth-integration-gsoc26/\n' >> docs/content/_data/site.yaml
+          fi
         shell: bash
 
       - name: Install Dependencies

@@ -45,16 +45,16 @@ final class DartStyleFooter extends StatelessComponent {
               ]),
               ul(classes: 'footer-utility-links', [
                 li([
-                  a(href: '/', [.text('Home')]),
+                  a(href: './', [.text('Home')]),
                 ]),
                 li([
-                  a(href: '/bluetooth/verify-bluez', [.text('Guides')]),
+                  a(href: 'bluetooth/verify-bluez', [.text('Guides')]),
                 ]),
                 li([
-                  a(href: '/journal', [.text('Journal')]),
+                  a(href: 'journal', [.text('Journal')]),
                 ]),
                 li([
-                  a(href: '/report/midterm', [.text('Report')]),
+                  a(href: 'report/midterm', [.text('Report')]),
                 ]),
               ]),
             ],

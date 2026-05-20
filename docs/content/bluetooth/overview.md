@@ -91,4 +91,4 @@ The first validation milestone is intentionally small:
 - A2DP creates PipeWire nodes and audio routes through the expected Bluetooth device.
 - AVRCP metadata and control events can be observed where the remote device supports them.
 
-For the first smoke-test flow, see [Verify BlueZ Stack](/bluetooth/verify-bluez).
+For the first smoke-test flow, see [Verify BlueZ Stack](bluetooth/verify-bluez).
