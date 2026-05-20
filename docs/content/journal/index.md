@@ -1,9 +1,34 @@
 ---
 title: Journal
-description: Weekly progress timeline for JianDe's GSoC26 AGL Bluetooth Integration project.
+description: Weekly progress timeline for JianDe's GSoC 2026 AGL Bluetooth Integration project.
 ---
 
 Use this timeline to track weekly GSoC progress, evidence captured from the target image, and upcoming deliverables.
+
+<section class="home-feature-section schedule-section" aria-labelledby="schedule-heading">
+  <div class="section-heading-row">
+    <div>
+      <p class="hero-eyebrow">Schedule</p>
+      <h2 id="schedule-heading">Evaluation milestones</h2>
+    </div>
+    <p>
+      The midterm evaluation window is August 11, 2026 through August 15, 2026.
+      The deadline is August 15, 2026 at 2:00 AM.
+    </p>
+  </div>
+  <div class="schedule-grid">
+    <article class="schedule-card">
+      <p class="schedule-date">Aug 11-15, 2026</p>
+      <h3>Contributor Midterm Evaluation</h3>
+      <p>Upcoming midterm evaluation for the GSoC 2026 contributor.</p>
+    </article>
+    <article class="schedule-card">
+      <p class="schedule-date">Aug 11-15, 2026</p>
+      <h3>Mentor Midterm Evaluation</h3>
+      <p>Upcoming mentor evaluation for the same midterm window.</p>
+    </article>
+  </div>
+</section>
 
 <div class="journal-timeline">
   <article class="journal-entry-card">

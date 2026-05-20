@@ -696,10 +696,10 @@
 .home-hero {
   align-items: start;
   display: grid;
-  gap: 1.5rem;
+  gap: 1.25rem;
   grid-template-columns: minmax(0, 1fr);
-  margin: 0 0 2rem;
-  padding: 2rem 0 0.5rem;
+  margin: 0 0 1.5rem;
+  padding: 1.5rem 0 0.25rem;
 }
 
 .docs .main-container main > div:has(.home-hero) aside.toc {
@@ -734,10 +734,16 @@
 
 .home-hero h2 {
   color: var(--site-base-fgColor);
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   line-height: 1.08;
   margin: 0 0 1rem;
   text-wrap: balance;
+}
+
+@media (min-width: 900px) {
+  .home-hero h2 {
+    font-size: 4rem;
+  }
 }
 
 .home-hero p {
@@ -747,7 +753,7 @@
 }
 
 .home-hero-card {
-  background-color: var(--site-primary-color-highlight);
+  background-color: var(--site-raised-bgColor);
   border: 1px solid var(--site-outline-variant);
   border-radius: .5rem;
   padding: 1.25rem;
@@ -788,9 +794,9 @@
 
 .quick-card-grid {
   display: grid;
-  gap: 1rem;
+  gap: .85rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  margin: 2rem 0;
+  margin: 1.5rem 0;
 }
 
 .quick-card {
@@ -846,11 +852,11 @@
 .home-feature-section {
   background-color: var(--site-base-bgColor);
   border: 1px solid var(--site-outline-variant);
-  border-radius: .75rem;
+  border-radius: .5rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
   display: grid;
   gap: 1.25rem;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   padding: 1.25rem;
 }
 
@@ -879,6 +885,60 @@
   .section-heading-row {
     grid-template-columns: minmax(0, .8fr) minmax(16rem, .55fr);
   }
+}
+
+.scope-grid,
+.schedule-grid {
+  display: grid;
+  gap: .85rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11.5rem), 1fr));
+}
+
+.scope-card,
+.schedule-card {
+  background-color: var(--site-raised-bgColor);
+  border: 1px solid var(--site-outline-variant);
+  border-radius: .5rem;
+  display: grid;
+  gap: .45rem;
+  padding: 1rem;
+}
+
+.scope-card .material-symbols {
+  color: var(--site-link-fgColor);
+  font-size: 1.45rem;
+}
+
+.scope-card {
+  align-content: start;
+}
+
+.scope-card h3,
+.schedule-card h3 {
+  color: var(--site-base-fgColor);
+  font-size: 1.05rem;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.scope-card p,
+.schedule-card p {
+  color: var(--site-base-fgColor-alt);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.schedule-card {
+  border-color: color-mix(in srgb, var(--site-primary-color) 28%, var(--site-outline-variant));
+}
+
+.schedule-card .schedule-date {
+  color: var(--site-link-fgColor);
+  font-family: var(--site-ui-fontFamily);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
 }
 
 .sponsor-section {
@@ -1261,11 +1321,14 @@
 }
 
 .journal-timeline {
-  border-left: 2px solid var(--site-outline-variant);
+  background-image: linear-gradient(var(--site-outline-variant), var(--site-outline-variant));
+  background-position: .36rem 0;
+  background-repeat: no-repeat;
+  background-size: 2px 100%;
   display: grid;
   gap: 1rem;
   margin: 2rem 0;
-  padding-left: 1.25rem;
+  padding-left: 1.65rem;
 }
 
 .journal-entry-card {
@@ -1278,7 +1341,7 @@
   border-radius: 999px;
   content: "";
   height: .75rem;
-  left: -1.72rem;
+  left: -1.68rem;
   position: absolute;
   top: 1.2rem;
   width: .75rem;
@@ -1749,10 +1812,10 @@
   background: linear-gradient(90deg, #f9ab00, #00a63f 45%, #4ade80);
   content: "";
   height: 3px;
-  inset: 0 0 auto;
+  inset: 0 auto auto 50%;
+  margin-left: -50vw;
   position: absolute;
-  left: 0;
-  right: 0;
+  width: 100vw;
 }
 
 #page-footer a {

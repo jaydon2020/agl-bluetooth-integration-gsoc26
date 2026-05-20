@@ -1,9 +1,9 @@
 ---
-title: About JianDe's GSoC26
+title: About JianDe's GSoC 2026
 description: Project context, student information, mentors, and organizations for the AGL Bluetooth Integration GSoC 2026 project.
 ---
 
-JianDe's GSoC26 is a project portfolio and technical documentation site for **AGL Bluetooth Integration**, a Google Summer of Code 2026 project focused on modern Bluetooth support in Automotive Grade Linux.
+JianDe's GSoC 2026 is a project portfolio and technical documentation site for **AGL Bluetooth Integration**, a Google Summer of Code 2026 project focused on modern Bluetooth support in Automotive Grade Linux.
 
 ## Student
 

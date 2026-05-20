@@ -143,27 +143,27 @@ final class _QuickLink {
 const _statusCards = [
   _StatusCard(
     icon: 'bluetooth',
-    label: 'Core stack',
-    title: 'BlueZ bring-up',
-    description: 'Adapter, discovery, pairing, trust, connection, and profile checks for the target image.',
+    label: 'Control path',
+    title: 'BlueZ over D-Bus',
+    description: 'Adapter, scan, pairing, trust, reconnect, and profile state exposed through a native bridge.',
   ),
   _StatusCard(
     icon: 'graphic_eq',
-    label: 'Audio path',
-    title: 'PipeWire routing',
-    description: 'A2DP validation with PipeWire and WirePlumber as the modern AGL audio graph.',
+    label: 'Media and calls',
+    title: 'Audio automation',
+    description: 'A2DP media first, with HFP call routing prepared around PipeWire and WirePlumber policy.',
   ),
   _StatusCard(
     icon: 'terminal',
-    label: 'Native bridge',
-    title: 'C++ D-Bus plugin',
-    description: 'Typed Flutter access to BlueZ through a native plugin instead of legacy afb-daemon mappings.',
+    label: 'Flutter API',
+    title: 'C++ plugin bridge',
+    description: 'Typed Flutter access to BlueZ and profile events without relying on legacy afb-daemon bindings.',
   ),
   _StatusCard(
     icon: 'flag',
-    label: 'Milestones',
-    title: 'Reports upcoming',
-    description: 'Midterm and final reports stay visible while validation evidence is collected.',
+    label: 'GSoC 2026',
+    title: 'Midterm upcoming',
+    description: 'Contributor and mentor midterm evaluations run August 11-15, 2026.',
   ),
 ];
 
@@ -171,16 +171,17 @@ const _checklistItems = [
   _ChecklistItem('target-image', 'Confirm AGL target image and board revision'),
   _ChecklistItem('bluez-service', 'Verify bluetooth.service and local adapter'),
   _ChecklistItem('pair-connect', 'Pair, trust, connect, disconnect, and reconnect a phone'),
-  _ChecklistItem('a2dp-pipewire', 'Verify A2DP PipeWire nodes and audio route'),
+  _ChecklistItem('a2dp-pipewire', 'Verify A2DP media audio nodes and routes'),
+  _ChecklistItem('future-profiles', 'Map HFP, PBAP, and MAP automation requirements'),
   _ChecklistItem('logs', 'Capture btmon, journalctl, and busctl evidence'),
   _ChecklistItem('report-notes', 'Draft report notes from validation results'),
 ];
 
 const _quickLinks = [
-  _QuickLink(icon: 'architecture', label: 'Architecture Overview', href: 'bluetooth/overview'),
-  _QuickLink(icon: 'fact_check', label: 'BlueZ Verification', href: 'bluetooth/verify-bluez'),
-  _QuickLink(icon: 'timeline', label: 'Weekly Journal', href: 'journal'),
-  _QuickLink(icon: 'assignment', label: 'Milestones', href: 'report/midterm'),
+  _QuickLink(icon: 'architecture', label: 'Architecture Overview', href: '/bluetooth/overview'),
+  _QuickLink(icon: 'fact_check', label: 'BlueZ Verification', href: '/bluetooth/verify-bluez'),
+  _QuickLink(icon: 'timeline', label: 'Weekly Journal', href: '/journal'),
+  _QuickLink(icon: 'assignment', label: 'Milestones', href: '/report/midterm'),
   _QuickLink(
     icon: 'school',
     label: 'GSoC Project',

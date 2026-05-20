@@ -1,30 +1,71 @@
 ---
-title: AGL Bluetooth Integration — GSoC 2026
-description: JianDe's GSoC26 project portfolio for modern Bluetooth integration in Automotive Grade Linux.
+title: AGL Bluetooth Integration - GSoC 2026
+description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integration in Automotive Grade Linux.
 ---
 
 <section class="home-hero">
   <div class="home-hero-copy">
-    <p class="hero-eyebrow">JianDe's GSoC26</p>
-    <h2>Modern Bluetooth for the AGL Flutter IVI stack</h2>
+    <p class="hero-eyebrow">GSoC 2026 contributor</p>
+    <h2>AGL Bluetooth Integration</h2>
     <p>
-      This project documents a modern Bluetooth integration path for Automotive Grade Linux,
-      replacing legacy afb-daemon mappings with a native C++ D-Bus bridge to BlueZ and a
-      Flutter-facing API for the IVI experience.
+      A clean project portfolio for adding phone-to-IVI Bluetooth support in
+      Automotive Grade Linux through BlueZ, PipeWire, WirePlumber, C++ D-Bus,
+      and Flutter.
     </p>
     <p>
-      The validation path focuses on BlueZ, PipeWire, WirePlumber, and profile-oriented
-      smoke tests on Raspberry Pi 5 hardware.
+      The goal is to make pairing, media audio, hands-free calls, phone book
+      access, and messages easier to validate and automate on the modern AGL
+      Flutter IVI stack.
     </p>
   </div>
   <div class="home-hero-card">
-    <p class="hero-eyebrow">Stack focus</p>
+    <p class="hero-eyebrow">Project path</p>
     <ul>
-      <li>BlueZ over D-Bus for adapter and device lifecycle</li>
-      <li>PipeWire and WirePlumber for Bluetooth audio routing</li>
-      <li>Flutter plugin architecture for the AGL homescreen</li>
-      <li>Repeatable GSoC validation and reporting workflow</li>
+      <li>Connect a phone to the AGL IVI target</li>
+      <li>Automate media/audio behavior through A2DP and AVRCP</li>
+      <li>Prepare HFP, PBAP, and MAP profile integration</li>
+      <li>Expose reliable Bluetooth state to Flutter apps</li>
     </ul>
+  </div>
+</section>
+
+<section class="home-feature-section scope-section" aria-labelledby="scope-heading">
+  <div class="section-heading-row">
+    <div>
+      <p class="hero-eyebrow">Scope</p>
+      <h2 id="scope-heading">From phone connection to IVI features</h2>
+    </div>
+    <p>
+      Each Bluetooth profile maps to a user-visible IVI behavior, from media
+      playback to calls, contacts, and messages.
+    </p>
+  </div>
+  <div class="scope-grid">
+    <article class="scope-card">
+      <span class="material-symbols" aria-hidden="true" translate="no">music_note</span>
+      <h3>A2DP</h3>
+      <p>Media audio from a connected phone into the IVI audio stack.</p>
+    </article>
+    <article class="scope-card">
+      <span class="material-symbols" aria-hidden="true" translate="no">radio_button_checked</span>
+      <h3>AVRCP</h3>
+      <p>Playback metadata and media controls such as play, pause, and next track.</p>
+    </article>
+    <article class="scope-card">
+      <span class="material-symbols" aria-hidden="true" translate="no">phone_iphone</span>
+      <h3>HFP</h3>
+      <p>Hands-free calling, call state, and call audio routing for the IVI.</p>
+    </article>
+    <article class="scope-card">
+      <span class="material-symbols" aria-hidden="true" translate="no">contacts</span>
+      <h3>PBAP</h3>
+      <p>Phone book access for contact lists and caller identity.</p>
+    </article>
+    <article class="scope-card">
+      <span class="material-symbols" aria-hidden="true" translate="no">chat</span>
+      <h3>MAP</h3>
+      <p>Message access for future IVI notification and messaging flows.</p>
+    </article>
   </div>
 </section>
 
@@ -91,8 +132,7 @@ description: JianDe's GSoC26 project portfolio for modern Bluetooth integration 
       <p class="person-role">Contributor</p>
       <h3>JianDe (Jaydon)</h3>
       <p>
-        GSoC 2026 contributor documenting and implementing the AGL Bluetooth
-        integration path across BlueZ, PipeWire, WirePlumber, C++ D-Bus, and Flutter.
+        GSoC 2026 contributor.
       </p>
     </article>
     <article class="person-card">
@@ -112,5 +152,3 @@ description: JianDe's GSoC26 project portfolio for modern Bluetooth integration 
     </article>
   </div>
 </section>
-
-<ProjectDashboard/>

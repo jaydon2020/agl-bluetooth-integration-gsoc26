@@ -21,7 +21,7 @@ final class DartStyleFooter extends StatelessComponent {
             ),
             p([
               .text(
-                'AGL Bluetooth Integration project portfolio for BlueZ, PipeWire, WirePlumber, C++ D-Bus, and Flutter.',
+                'AGL Bluetooth Integration portfolio for a GSoC 2026 contributor.',
               ),
             ]),
           ]),
@@ -45,16 +45,16 @@ final class DartStyleFooter extends StatelessComponent {
               ]),
               ul(classes: 'footer-utility-links', [
                 li([
-                  a(href: './', [.text('Home')]),
+                  a(href: '/', [.text('Home')]),
                 ]),
                 li([
-                  a(href: 'bluetooth/verify-bluez', [.text('Guides')]),
+                  a(href: '/bluetooth/verify-bluez', [.text('Guides')]),
                 ]),
                 li([
-                  a(href: 'journal', [.text('Journal')]),
+                  a(href: '/journal', [.text('Journal')]),
                 ]),
                 li([
-                  a(href: 'report/midterm', [.text('Report')]),
+                  a(href: '/report/midterm', [.text('Report')]),
                 ]),
               ]),
             ],
@@ -62,7 +62,7 @@ final class DartStyleFooter extends StatelessComponent {
           div(classes: 'footer-legal-card', [
             p(classes: 'footer-licenses', [
               .text(
-                "JianDe's GSoC26 project documentation for Google Summer of Code 2026. Except as otherwise noted, this site is licensed under a ",
+                "JianDe's GSoC 2026 project documentation for Google Summer of Code. Except as otherwise noted, this site is licensed under a ",
               ),
               a(
                 href: 'https://creativecommons.org/licenses/by/4.0/',
