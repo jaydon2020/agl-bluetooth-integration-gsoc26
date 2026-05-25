@@ -121,10 +121,16 @@ List<ProjectSidebarSection> _buildSidebarSections() {
             preferredOrder: const [
               'profile-gap',
               'profile-a2dp',
+              'profile-hfp',
               'profile-pbap',
               'profile-map',
             ],
           ),
+        ),
+        _entryForPage(
+          'content/bluetooth/remote-dbus.md',
+          fallbackText: 'Remote D-Bus Inspection',
+          href: 'bluetooth/remote-dbus',
         ),
       ],
     ),

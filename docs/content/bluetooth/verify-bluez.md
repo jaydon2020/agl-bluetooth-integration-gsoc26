@@ -8,7 +8,7 @@ Use this page to run focused BlueZ smoke tests on an AGL image. The Qualcomm Lin
 
 The immediate goal is to prove that the platform can bring up the adapter, discover a phone or headset, pair and trust it, connect it, and observe the first audio and media-control signals needed by the AGL Bluetooth integration project.
 
-For adapter and device lifecycle commands, see the [Profile GAP](bluetooth/verify-bluez/profile-gap) subpage. For Bluetooth media audio validation, see the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage. For OBEX-based profile checks, see the [Profile PBAP](bluetooth/verify-bluez/profile-pbap) and [Profile MAP](bluetooth/verify-bluez/profile-map) subpages.
+For adapter and device lifecycle commands, see the [Profile GAP](bluetooth/verify-bluez/profile-gap) subpage. For Bluetooth media audio validation, see the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage. For telephony call control, see the [Profile HFP](bluetooth/verify-bluez/profile-hfp) subpage. For OBEX-based profile checks, see the [Profile PBAP](bluetooth/verify-bluez/profile-pbap) and [Profile MAP](bluetooth/verify-bluez/profile-map) subpages.
 
 ## Reference Profile Matrix
 
@@ -52,7 +52,7 @@ Use the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage for Bluetoot
 
 HFP defines how an audio gateway, such as a phone, connects to a hands-free device for call control and audio connection.
 
-HFP is future or stretch work for this project unless the target AGL image already includes the required telephony service and SCO or wideband speech audio policy.
+HFP is future or stretch work for this project unless the target AGL image already includes PipeWire telephony support, SCO routing, and the required call-control policy. Use the [Profile HFP](bluetooth/verify-bluez/profile-hfp) subpage for the PipeWire telephony D-Bus workflow.
 
 ### Object Push Profile
 
