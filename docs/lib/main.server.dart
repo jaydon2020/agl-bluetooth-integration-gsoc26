@@ -121,6 +121,8 @@ List<ProjectSidebarSection> _buildSidebarSections() {
             preferredOrder: const [
               'profile-gap',
               'profile-a2dp',
+              'profile-pbap',
+              'profile-map',
             ],
           ),
         ),

@@ -8,7 +8,7 @@ Use this page to run focused BlueZ smoke tests on an AGL image. The Qualcomm Lin
 
 The immediate goal is to prove that the platform can bring up the adapter, discover a phone or headset, pair and trust it, connect it, and observe the first audio and media-control signals needed by the AGL Bluetooth integration project.
 
-For adapter and device lifecycle commands, see the [Profile GAP](bluetooth/verify-bluez/profile-gap) subpage. For Bluetooth media audio validation, see the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage.
+For adapter and device lifecycle commands, see the [Profile GAP](bluetooth/verify-bluez/profile-gap) subpage. For Bluetooth media audio validation, see the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage. For OBEX-based profile checks, see the [Profile PBAP](bluetooth/verify-bluez/profile-pbap) and [Profile MAP](bluetooth/verify-bluez/profile-map) subpages.
 
 ## Reference Profile Matrix
 
@@ -70,10 +70,10 @@ FTP should be treated as an OBEX follow-up area, not a blocker for the initial B
 
 PBAP enables exchange of phone book objects between a remote device and the local system.
 
-PBAP is useful for an IVI contacts experience, but should be validated after pairing, reconnection, A2DP, AVRCP, and the native Flutter plugin shape are stable.
+PBAP is useful for an IVI contacts experience, but should be validated after pairing, reconnection, A2DP, AVRCP, and the native Flutter plugin shape are stable. Use the [Profile PBAP](bluetooth/verify-bluez/profile-pbap) subpage for `obexctl` and OBEX D-Bus validation.
 
 ### Message Access Profile
 
 MAP defines procedures for exchanging message objects between devices.
 
-MAP is future profile work for messaging UX and should be tested only after the base BlueZ and OBEX paths are available in the AGL image.
+MAP is future profile work for messaging UX and should be tested only after the base BlueZ and OBEX paths are available in the AGL image. Use the [Profile MAP](bluetooth/verify-bluez/profile-map) subpage for message-folder, message-listing, and message-download checks.
