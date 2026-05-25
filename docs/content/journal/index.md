@@ -1,5 +1,6 @@
 ---
 title: Journal
+navTitle: Journal Overview
 description: Weekly progress timeline for JianDe's GSoC 2026 AGL Bluetooth Integration project.
 ---
 

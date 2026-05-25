@@ -1,5 +1,6 @@
 ---
 title: Verify Functionality of BlueZ Stack
+navTitle: Verify BlueZ Stack
 description: Profile-oriented smoke tests for validating BlueZ on an AGL/Raspberry Pi 5 target.
 ---
 
@@ -7,7 +8,7 @@ Use this page to run focused BlueZ smoke tests on an AGL image. The Qualcomm Lin
 
 The immediate goal is to prove that the platform can bring up the adapter, discover a phone or headset, pair and trust it, connect it, and observe the first audio and media-control signals needed by the AGL Bluetooth integration project.
 
-For profile-specific BLE notes, see the [Profile GATT](bluetooth/verify-bluez/profile-gatt) subpage.
+For adapter and device lifecycle commands, see the [Profile GAP](bluetooth/verify-bluez/profile-gap) subpage. For Bluetooth media audio validation, see the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage.
 
 ## Reference Profile Matrix
 
@@ -33,7 +34,7 @@ For this project, GAP is the first required smoke test because every higher-leve
 
 GATT is the BLE service framework built on ATT. It is used to discover services and read or write characteristic values on a peer device.
 
-Use the [Profile GATT](bluetooth/verify-bluez/profile-gatt) subpage for BLE-specific notes. GATT is useful for future profile work, but the first AGL validation milestone remains classic Bluetooth pairing, audio, and media-control behavior.
+GATT is useful for future profile work, but the first AGL validation milestone remains classic Bluetooth pairing, audio, and media-control behavior.
 
 ### Human Interface Device Over GATT Profile
 
@@ -44,6 +45,8 @@ Treat HOGP as optional unless the AGL image needs to validate a Bluetooth input 
 ### Advanced Audio Distribution Profile
 
 A2DP defines multimedia audio streaming over Bluetooth. In this project, A2DP must be verified together with PipeWire and WirePlumber so the Bluetooth audio device appears as a usable audio node and can be routed predictably.
+
+Use the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) subpage for Bluetooth audio connection, media transport, and PipeWire routing checks.
 
 ### Hands-Free Profile
 

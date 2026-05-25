@@ -4,6 +4,8 @@
 /// To run code on the client, check the `main.client.dart` file.
 library;
 
+import 'dart:io';
+
 // Server-specific Jaspr import.
 import 'package:jaspr/dom.dart' show Color;
 import 'package:jaspr/server.dart';
@@ -79,50 +81,11 @@ void main() {
         DocsLayout(
           header: const FlutterDocsHeader(),
           footer: const DartStyleFooter(),
-          sidebar: const ProjectSidebar(
-            links: [
+          sidebar: ProjectSidebar(
+            links: const [
               ProjectSidebarEntry(text: "Home", href: './'),
             ],
-            sections: [
-              ProjectSidebarSection(
-                title: 'Guides',
-                links: [
-                  ProjectSidebarEntry(
-                    text: "Architecture Overview",
-                    href: 'bluetooth/overview',
-                  ),
-                  ProjectSidebarEntry(
-                    text: "Verify BlueZ Stack",
-                    href: 'bluetooth/verify-bluez',
-                    children: [
-                      ProjectSidebarEntry(
-                        text: "Profile GATT",
-                        href: 'bluetooth/verify-bluez/profile-gatt',
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              ProjectSidebarSection(
-                title: 'Journal',
-                links: [
-                  ProjectSidebarEntry(
-                    text: "Journal Overview",
-                    href: 'journal',
-                    children: [
-                      ProjectSidebarEntry(text: "Week 1", href: 'journal/week-1'),
-                    ],
-                  ),
-                ],
-              ),
-              ProjectSidebarSection(
-                title: 'Report',
-                links: [
-                  ProjectSidebarEntry(text: "Midterm Report", href: 'report/midterm'),
-                  ProjectSidebarEntry(text: "Final Report", href: 'report/final'),
-                ],
-              ),
-            ],
+            sections: _buildSidebarSections(),
           ),
         ),
       ],
@@ -136,4 +99,153 @@ void main() {
       ),
     ),
   );
+}
+
+List<ProjectSidebarSection> _buildSidebarSections() {
+  return [
+    ProjectSidebarSection(
+      title: 'Guides',
+      links: [
+        _entryForPage(
+          'content/bluetooth/overview.md',
+          fallbackText: 'Architecture Overview',
+          href: 'bluetooth/overview',
+        ),
+        _entryForPage(
+          'content/bluetooth/verify-bluez.md',
+          fallbackText: 'Verify BlueZ Stack',
+          href: 'bluetooth/verify-bluez',
+          children: _entriesForDirectory(
+            'content/bluetooth/verify-bluez',
+            routePrefix: 'bluetooth/verify-bluez',
+            preferredOrder: const [
+              'profile-gap',
+              'profile-a2dp',
+            ],
+          ),
+        ),
+      ],
+    ),
+    ProjectSidebarSection(
+      title: 'Journal',
+      links: [
+        _entryForPage(
+          'content/journal/index.md',
+          fallbackText: 'Journal Overview',
+          href: 'journal',
+          children: _entriesForDirectory(
+            'content/journal',
+            routePrefix: 'journal',
+            preferredOrder: const [
+              'week-1',
+            ],
+          ),
+        ),
+      ],
+    ),
+    ProjectSidebarSection(
+      title: 'Report',
+      links: _entriesForDirectory(
+        'content/report',
+        routePrefix: 'report',
+        preferredOrder: const [
+          'midterm',
+          'final',
+        ],
+      ),
+    ),
+  ];
+}
+
+List<ProjectSidebarEntry> _entriesForDirectory(
+  String directoryPath, {
+  required String routePrefix,
+  List<String> preferredOrder = const [],
+}) {
+  final directory = Directory(directoryPath);
+  if (!directory.existsSync()) return const [];
+
+  final entries = directory
+      .listSync()
+      .whereType<File>()
+      .where((file) => file.path.endsWith('.md'))
+      .where((file) => !_basenameWithoutExtension(file.path).startsWith('_'))
+      .where((file) => _basenameWithoutExtension(file.path) != 'index')
+      .map((file) {
+        final slug = _basenameWithoutExtension(file.path);
+        return _entryForPage(
+          file.path,
+          fallbackText: _titleFromSlug(slug),
+          href: '$routePrefix/$slug',
+        );
+      })
+      .toList();
+
+  entries.sort((a, b) {
+    final aOrder = preferredOrder.indexOf(_lastSegment(a.href));
+    final bOrder = preferredOrder.indexOf(_lastSegment(b.href));
+
+    if (aOrder != -1 || bOrder != -1) {
+      if (aOrder == -1) return 1;
+      if (bOrder == -1) return -1;
+      return aOrder.compareTo(bOrder);
+    }
+
+    return a.text.compareTo(b.text);
+  });
+
+  return entries;
+}
+
+ProjectSidebarEntry _entryForPage(
+  String filePath, {
+  required String fallbackText,
+  required String href,
+  List<ProjectSidebarEntry> children = const [],
+}) {
+  return ProjectSidebarEntry(
+    text: _readFrontMatterTitle(filePath) ?? fallbackText,
+    href: href,
+    children: children,
+  );
+}
+
+String? _readFrontMatterTitle(String filePath) {
+  final file = File(filePath);
+  if (!file.existsSync()) return null;
+
+  final lines = file.readAsLinesSync();
+  if (lines.isEmpty || lines.first.trim() != '---') return null;
+
+  String? title;
+
+  for (final line in lines.skip(1)) {
+    if (line.trim() == '---') break;
+
+    final match = RegExp(r'^(navTitle|title):\s*(.+)$').firstMatch(line);
+    if (match != null) {
+      final value = match.group(2)!.trim().replaceAll(RegExp(r'''^['"]|['"]$'''), '');
+      if (match.group(1) == 'navTitle') return value;
+      title = value;
+    }
+  }
+
+  return title;
+}
+
+String _basenameWithoutExtension(String path) {
+  final normalized = path.replaceAll(r'\', '/');
+  final basename = normalized.split('/').last;
+  final extensionIndex = basename.lastIndexOf('.');
+  return extensionIndex == -1 ? basename : basename.substring(0, extensionIndex);
+}
+
+String _lastSegment(String href) {
+  final normalized = href.endsWith('/') ? href.substring(0, href.length - 1) : href;
+  return normalized.split('/').last;
+}
+
+String _titleFromSlug(String slug) {
+  final words = slug.split('-').where((word) => word.isNotEmpty);
+  return words.map((word) => word[0].toUpperCase() + word.substring(1)).join(' ');
 }
