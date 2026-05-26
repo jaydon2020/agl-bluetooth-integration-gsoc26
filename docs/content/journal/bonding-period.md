@@ -13,17 +13,21 @@ Timeline: May 1, 2026 to May 24, 2026
 
 ## Progress
 
-- Environment setup: successfully deployed and configured AGL 21.90.0, `vimba`, on Raspberry Pi 5.
-- Audio and telephony validation: validated A2DP, AVRCP, and HFP through oFono. Identified that `org.pipewire.Telephony` is not supported in the current PipeWire v1.0.9 stack.
-- Tooling and infrastructure: configured remote debugging over SSH for D-Bus and Helvum, then installed and verified `obexctl` v5.72.
-- Documentation: finalized the project blog structure and integration guides for the Bluetooth validation workflow.
-- Next step: begin implementation of `org.bluez.Agent1` to enable robust pairing workflows within `bluez_native_comms`.
+- Environment setup:
+  - Successfully deployed and configured AGL 21.90.0, `vimba`, on Raspberry Pi 5.
+  - Configured remote debugging over SSH for D-Bus and Helvum.
+  - Set up Visual Studio remote debugging for the Flutter app.
+  - `obexctl` was not installed by default, so I manually installed and verified `obexctl` v5.72 within the AGL image.
+- Bluetooth profile validation: validated A2DP, AVRCP, HFP, MAP, and PBAP through D-Bus inspection with D-Spy and `busctl`, plus `bluetoothctl` and `obexctl`.
+- Master branch status: `org.pipewire.Telephony` is unavailable because the current PipeWire version is v1.0.9.
+- Blog Setup: finalized the project blog structure and integration guides for the Bluetooth validation workflow.
 
-Looking forward to the upcoming coding period.
+## Next Step
+
+- Next step: begin implementation of `org.bluez.Agent1` to enable robust pairing workflows within `bluez_native_comms`.
 
 ## Bluetooth guides
 
-- [Architecture Overview](guide/overview): pending architecture notes and references for the AGL Bluetooth direction.
 - [Verify BlueZ Stack](guide/verify-bluez): profile index for implemented and prepared BlueZ validation workflows.
 - [Profile GAP](guide/verify-bluez/profile-gap): adapter power, discovery, pairing, trust, removal, and discoverable mode.
 - [Profile A2DP](guide/verify-bluez/profile-a2dp): media audio connection, BlueZ media transport state, and PipeWire routing checks.
