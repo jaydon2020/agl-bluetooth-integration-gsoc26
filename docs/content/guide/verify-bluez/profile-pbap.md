@@ -6,7 +6,7 @@ description: Commands and D-Bus checks for validating Bluetooth PBAP contact acc
 
 PBAP validates contact and call-history access from a paired phone. BlueZ exposes PBAP through the OBEX service `org.bluez.obex`, so these checks use `obexctl` and the OBEX D-Bus APIs rather than the normal `org.bluez` adapter and device APIs.
 
-Before running this test, complete the [Profile GAP](bluetooth/verify-bluez/profile-gap) flow so the adapter is powered on and the remote phone is paired and trusted.
+Before running this test, complete the [Profile GAP](guide/verify-bluez/profile-gap) flow so the adapter is powered on and the remote phone is paired and trusted. If `obexctl` is missing from the target image, see [Install OBEX on Yocto](guide/install-obex-yocto).
 
 For D-Bus examples, replace `F8:7D:76:9D:9B:6B` and `/org/bluez/obex/client/session0` with the values from your target.
 
@@ -311,3 +311,8 @@ Use this proxy XML as a compact reference for the BlueZ OBEX D-Bus interfaces us
   </interface>
 </node>
 ```
+
+## References
+
+- BlueZ OBEX API: [OBEX API](https://bluez.readthedocs.io/en/latest/obex-api/)
+- Install OBEX tools on AGL/Yocto: [Install OBEX on Yocto](guide/install-obex-yocto)

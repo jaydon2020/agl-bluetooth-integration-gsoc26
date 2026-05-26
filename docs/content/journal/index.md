@@ -4,7 +4,7 @@ navTitle: Journal Overview
 description: Weekly progress timeline for JianDe's GSoC 2026 AGL Bluetooth Integration project.
 ---
 
-Use this timeline to track weekly GSoC progress, evidence captured from the target image, and upcoming deliverables.
+Use this timeline to track weekly GSoC progress, evidence captured from the target image, and upcoming deliverables. The journal is intentionally practical: each entry should connect project decisions to commands, logs, or code that can be reviewed later.
 
 <section class="home-feature-section schedule-section" aria-labelledby="schedule-heading">
   <div class="section-heading-row">
@@ -35,12 +35,23 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
       <span class="status-badge status-badge-completed">Completed</span>
-      <span>Week 1</span>
+      <span>May 1-24, 2026</span>
     </div>
-    <h2><a href="journal/week-1">Foundation and BlueZ smoke-test planning</a></h2>
+    <h2><a href="journal/bonding-period">Bonding period</a></h2>
     <p>
-      Established the documentation structure, Bluetooth overview, and initial BlueZ
-      validation flow for the AGL Raspberry Pi target.
+      Reviewed the AGL Bluetooth project scope, studied the BlueZ and PipeWire
+      direction, and prepared the documentation structure for the coding period.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-in-progress">In Progress</span>
+      <span>May 25-31, 2026</span>
+    </div>
+    <h2><a href="journal/week-1">Week 1</a></h2>
+    <p>
+      Established the documentation structure, Bluetooth architecture direction,
+      and first BlueZ validation flows for AGL target hardware.
     </p>
   </article>
   <article class="journal-entry-card">
@@ -48,10 +59,10 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
       <span class="status-badge status-badge-in-progress">In Progress</span>
       <span>Current milestone</span>
     </div>
-    <h2>Target validation and evidence capture</h2>
+    <h2>Setup Bluetooth connect and pairing UI</h2>
     <p>
-      Run the BlueZ checklist on hardware, capture logs, and refine the plugin-facing
-      assumptions from real target behavior.
+      Run the GAP and A2DP checklists on hardware, capture BlueZ and PipeWire logs,
+      and refine plugin-facing assumptions from real target behavior.
     </p>
   </article>
   <article class="journal-entry-card">
@@ -61,8 +72,8 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
     </div>
     <h2>Midterm and final reports</h2>
     <p>
-      Publish milestone reports after implementation evidence, validation logs, and
-      mentor feedback are ready.
+      Publish milestone reports after implementation evidence, validation logs,
+      architecture notes, and mentor feedback are ready.
     </p>
   </article>
 </div>

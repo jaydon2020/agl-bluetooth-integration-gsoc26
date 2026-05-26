@@ -6,7 +6,7 @@ description: Commands and D-Bus checks for validating Bluetooth MAP message acce
 
 MAP validates message browsing and message transfer from a paired phone. BlueZ exposes MAP through the OBEX service `org.bluez.obex`, so these checks use `obexctl` and OBEX D-Bus APIs.
 
-Before running this test, complete the [Profile GAP](bluetooth/verify-bluez/profile-gap) flow so the adapter is powered on and the remote phone is paired and trusted. On most phones, message access also requires an explicit permission prompt on the phone.
+Before running this test, complete the [Profile GAP](guide/verify-bluez/profile-gap) flow so the adapter is powered on and the remote phone is paired and trusted. On most phones, message access also requires an explicit permission prompt on the phone. If `obexctl` is missing from the target image, see [Install OBEX on Yocto](guide/install-obex-yocto).
 
 For D-Bus examples, replace `F8:7D:76:9D:9B:6B` and `/org/bluez/obex/client/session0` with the values from your target.
 
@@ -320,3 +320,8 @@ Use this proxy XML as a compact reference for the BlueZ OBEX D-Bus interfaces us
   </interface>
 </node>
 ```
+
+## References
+
+- BlueZ OBEX API: [OBEX API](https://bluez.readthedocs.io/en/latest/obex-api/)
+- Install OBEX tools on AGL/Yocto: [Install OBEX on Yocto](guide/install-obex-yocto)

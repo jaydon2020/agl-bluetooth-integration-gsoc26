@@ -354,5 +354,5 @@ unix:path=/root/dbus_on_local
 ## References
 
 - `busctl` manual: [busctl(1)](https://man7.org/linux/man-pages/man1/busctl.1.html)
-- OpenSSH socket-forwarding behavior: [sshd_config(5)](https://manpages.ubuntu.com/manpages/bionic/man5/sshd_config.5.html)
+- OpenSSH client socket-forwarding behavior: [ssh_config(5)](https://man7.org/linux/man-pages/man5/ssh_config.5.html)
 - D-Spy application page: [D-Spy](https://apps.gnome.org/Dspy/)

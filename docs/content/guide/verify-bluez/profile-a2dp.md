@@ -6,7 +6,7 @@ description: Commands and D-Bus checks for validating Bluetooth A2DP audio strea
 
 A2DP validates Bluetooth media audio between the AGL device and a remote phone or headset. On AGL, BlueZ owns the Bluetooth profile lifecycle, while PipeWire and WirePlumber normally register the local media endpoints and route the audio stream after the Bluetooth device connects.
 
-Before running this test, complete the [Profile GAP](bluetooth/verify-bluez/profile-gap) flow so the adapter is powered on and the remote device is paired and trusted.
+Before running this test, complete the [Profile GAP](guide/verify-bluez/profile-gap) flow so the adapter is powered on and the remote device is paired and trusted.
 
 For D-Bus examples, the default adapter path is assumed to be `/org/bluez/hci0`. Replace `hci0` and the sample device address with the values from your target.
 
@@ -208,7 +208,7 @@ Sample output:
 
 ```
 Attempting to disconnect from F8:7D:76:9D:9B:6B
-Successful disconnected
+Successfully disconnected
 ```
 
 Using D-Bus:
@@ -341,3 +341,8 @@ Use this proxy XML as a compact reference for the BlueZ D-Bus interfaces used by
   </interface>
 </node>
 ```
+
+## References
+
+- BlueZ Device API: [Device API](https://bluez.readthedocs.io/en/latest/device-api/)
+- BlueZ Media API: [Media API](https://bluez.readthedocs.io/en/latest/media-api/)

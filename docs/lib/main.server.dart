@@ -107,17 +107,17 @@ List<ProjectSidebarSection> _buildSidebarSections() {
       title: 'Guides',
       links: [
         _entryForPage(
-          'content/bluetooth/overview.md',
+          'content/guide/overview.md',
           fallbackText: 'Architecture Overview',
-          href: 'bluetooth/overview',
+          href: 'guide/overview',
         ),
         _entryForPage(
-          'content/bluetooth/verify-bluez.md',
+          'content/guide/verify-bluez.md',
           fallbackText: 'Verify BlueZ Stack',
-          href: 'bluetooth/verify-bluez',
+          href: 'guide/verify-bluez',
           children: _entriesForDirectory(
-            'content/bluetooth/verify-bluez',
-            routePrefix: 'bluetooth/verify-bluez',
+            'content/guide/verify-bluez',
+            routePrefix: 'guide/verify-bluez',
             preferredOrder: const [
               'profile-gap',
               'profile-a2dp',
@@ -128,9 +128,19 @@ List<ProjectSidebarSection> _buildSidebarSections() {
           ),
         ),
         _entryForPage(
-          'content/bluetooth/remote-dbus.md',
+          'content/guide/remote-dbus.md',
           fallbackText: 'Remote D-Bus Inspection',
-          href: 'bluetooth/remote-dbus',
+          href: 'guide/remote-dbus',
+        ),
+        _entryForPage(
+          'content/guide/remote-pipewire.md',
+          fallbackText: 'Remote PipeWire Inspection',
+          href: 'guide/remote-pipewire',
+        ),
+        _entryForPage(
+          'content/guide/install-obex-yocto.md',
+          fallbackText: 'Install OBEX on Yocto',
+          href: 'guide/install-obex-yocto',
         ),
       ],
     ),
@@ -145,6 +155,7 @@ List<ProjectSidebarSection> _buildSidebarSections() {
             'content/journal',
             routePrefix: 'journal',
             preferredOrder: const [
+              'bonding-period',
               'week-1',
             ],
           ),

@@ -8,23 +8,23 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
     <p class="hero-eyebrow">GSoC 2026 contributor</p>
     <h2>AGL Bluetooth Integration</h2>
     <p>
-      A clean project portfolio for adding phone-to-IVI Bluetooth support in
-      Automotive Grade Linux through BlueZ, PipeWire, WirePlumber, C++ D-Bus,
-      and Flutter.
+      Project notes and validation guides for adding phone-to-IVI Bluetooth
+      support back into Automotive Grade Linux through BlueZ, PipeWire,
+      GStreamer, native integration, and Flutter.
     </p>
     <p>
-      The goal is to make pairing, media audio, hands-free calls, phone book
-      access, and messages easier to validate and automate on the modern AGL
-      Flutter IVI stack.
+      The project goal is to rebuild core Bluetooth user flows for modern AGL:
+      phone pairing, media playback, profile state, and stretch phone features
+      through a reusable service or library abstraction.
     </p>
   </div>
   <div class="home-hero-card">
-    <p class="hero-eyebrow">Project path</p>
+    <p class="hero-eyebrow">Project Goal</p>
     <ul>
-      <li>Connect a phone to the AGL IVI target</li>
-      <li>Automate media/audio behavior through A2DP and AVRCP</li>
-      <li>Prepare HFP, PBAP, and MAP profile integration</li>
-      <li>Expose reliable Bluetooth state to Flutter apps</li>
+      <li>Develop a new settings UI for phone pairing</li>
+      <li>Add A2DP and AVRCP support to the media player</li>
+      <li>Build a Flutter FFI C++ library for BlueZ stack profiles</li>
+      <li>Stretch: build HFP telephone, PBAP phone book, or MAP messaging UI</li>
     </ul>
   </div>
 </section>
@@ -36,15 +36,15 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
       <h2 id="scope-heading">From phone connection to IVI features</h2>
     </div>
     <p>
-      Each Bluetooth profile maps to a user-visible IVI behavior, from media
-      playback to calls, contacts, and messages.
+      Each profile guide maps a Linux Bluetooth capability to a user-visible
+      IVI behavior, from media playback to calls, contacts, and messages.
     </p>
   </div>
   <div class="scope-grid">
     <article class="scope-card">
       <span class="material-symbols" aria-hidden="true" translate="no">music_note</span>
       <h3>A2DP</h3>
-      <p>Media audio from a connected phone into the IVI audio stack.</p>
+      <p>Media audio from a connected phone into the AGL audio stack.</p>
     </article>
     <article class="scope-card">
       <span class="material-symbols" aria-hidden="true" translate="no">radio_button_checked</span>
@@ -64,26 +64,26 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
     <article class="scope-card">
       <span class="material-symbols" aria-hidden="true" translate="no">chat</span>
       <h3>MAP</h3>
-      <p>Message access for future IVI notification and messaging flows.</p>
+      <p>Message access for future notification and messaging flows.</p>
     </article>
   </div>
 </section>
 
 <div class="quick-card-grid">
-  <a class="quick-card" href="bluetooth/overview">
+  <a class="quick-card" href="guide/overview">
     <span class="material-symbols" aria-hidden="true" translate="no">architecture</span>
     <strong>Architecture Overview</strong>
-    <span>Read the project motivation, mentor context, and proposed system architecture.</span>
+    <span>Read the BlueZ, PipeWire, WirePlumber, D-Bus, and Flutter architecture direction.</span>
   </a>
-  <a class="quick-card" href="bluetooth/verify-bluez">
+  <a class="quick-card" href="guide/verify-bluez">
     <span class="material-symbols" aria-hidden="true" translate="no">fact_check</span>
     <strong>BlueZ Verification</strong>
-    <span>Run profile-oriented smoke tests for the Linux Bluetooth stack.</span>
+    <span>Run profile-oriented smoke tests for the target Linux Bluetooth stack.</span>
   </a>
   <a class="quick-card" href="journal">
     <span class="material-symbols" aria-hidden="true" translate="no">timeline</span>
     <strong>Weekly Progress Journal</strong>
-    <span>Follow week-by-week implementation notes and next steps.</span>
+    <span>Follow weekly implementation notes, evidence to capture, and next steps.</span>
   </a>
   <a class="quick-card" href="report/midterm">
     <span class="material-symbols" aria-hidden="true" translate="no">assignment</span>
@@ -100,7 +100,8 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
     </div>
     <p>
       This portfolio tracks JianDe's GSoC 2026 work in the Automotive Grade Linux
-      ecosystem, with the Linux Foundation and AGL community providing the project context.
+      ecosystem, with validation notes designed to be useful to mentors, reviewers,
+      and future contributors.
     </p>
   </div>
   <div class="sponsor-logo-grid">
@@ -132,7 +133,8 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
       <p class="person-role">Contributor</p>
       <h3>JianDe (Jaydon)</h3>
       <p>
-        GSoC 2026 contributor.
+        GSoC 2026 contributor focused on Bluetooth validation and Flutter-facing
+        integration for AGL.
       </p>
     </article>
     <article class="person-card">

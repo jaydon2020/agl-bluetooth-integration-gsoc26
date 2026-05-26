@@ -178,8 +178,8 @@ const _checklistItems = [
 ];
 
 const _quickLinks = [
-  _QuickLink(icon: 'architecture', label: 'Architecture Overview', href: 'bluetooth/overview'),
-  _QuickLink(icon: 'fact_check', label: 'BlueZ Verification', href: 'bluetooth/verify-bluez'),
+  _QuickLink(icon: 'architecture', label: 'Architecture Overview', href: 'guide/overview'),
+  _QuickLink(icon: 'fact_check', label: 'BlueZ Verification', href: 'guide/verify-bluez'),
   _QuickLink(icon: 'timeline', label: 'Weekly Journal', href: 'journal'),
   _QuickLink(icon: 'assignment', label: 'Milestones', href: 'report/midterm'),
   _QuickLink(

@@ -56,7 +56,7 @@ class FlutterDocsHeader extends StatelessComponent {
               isActive: activeEntry == _ActiveNavEntry.home,
             ),
             _NavItem(
-              href: 'bluetooth/verify-bluez',
+              href: 'guide/verify-bluez',
               label: 'Guides',
               isActive: activeEntry == _ActiveNavEntry.guides,
             ),
@@ -144,7 +144,7 @@ _ActiveNavEntry? _activeNavEntry(String pageUrlPath) {
   if (normalizedPath == '/') {
     return _ActiveNavEntry.home;
   }
-  if (normalizedPath.startsWith('/bluetooth/')) {
+  if (normalizedPath.startsWith('/guide/')) {
     return _ActiveNavEntry.guides;
   }
   if (normalizedPath == '/journal' || normalizedPath.startsWith('/journal/')) {

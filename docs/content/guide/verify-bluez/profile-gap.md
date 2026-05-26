@@ -395,3 +395,9 @@ Use this proxy XML as a compact reference for the BlueZ D-Bus interfaces used by
   </interface>
 </node>
 ```
+
+## References
+
+- BlueZ Adapter API: [Adapter API](https://bluez.readthedocs.io/en/latest/adapter-api/)
+- BlueZ Device API: [Device API](https://bluez.readthedocs.io/en/latest/device-api/)
+- BlueZ Agent API: [Agent API](https://bluez.readthedocs.io/en/latest/agent-api/)

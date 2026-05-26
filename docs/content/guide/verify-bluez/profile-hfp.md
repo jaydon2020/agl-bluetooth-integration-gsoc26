@@ -6,7 +6,7 @@ description: Commands and D-Bus checks for validating Bluetooth HFP telephony on
 
 HFP validates voice-call control between the AGL device and a paired mobile phone. In the current PipeWire telephony model, Bluetooth call control is exposed through the `org.pipewire.Telephony` D-Bus service when PipeWire 1.3.82 or later is running with the BlueZ plugin enabled in WirePlumber.
 
-Before running this test, complete the [Profile GAP](bluetooth/verify-bluez/profile-gap) flow so the adapter is powered on and the remote phone is paired and trusted. For call audio, also make sure the [Profile A2DP](bluetooth/verify-bluez/profile-a2dp) flow is working first.
+Before running this test, complete the [Profile GAP](guide/verify-bluez/profile-gap) flow so the adapter is powered on and the remote phone is paired and trusted. For call audio, also make sure the [Profile A2DP](guide/verify-bluez/profile-a2dp) flow is working first.
 
 For D-Bus examples, replace `F8:7D:76:9D:9B:6B` and the sample phone number with the values from your target.
 
@@ -176,7 +176,7 @@ Sample output:
 y 0
 ```
 
-## BlueZ Telephony Proxy XML
+## PipeWire Telephony Proxy XML
 
 Use this proxy XML as a compact reference for the PipeWire telephony D-Bus interfaces used by the HFP commands above.
 
@@ -235,3 +235,8 @@ Use this proxy XML as a compact reference for the PipeWire telephony D-Bus inter
   </interface>
 </node>
 ```
+
+## References
+
+- PipeWire telephony design and D-Bus workflow: [PipeWire Telephony](https://gkiagia.gr/2025-02-20-pipewire-telephony/)
+- `busctl` command reference: [busctl(1)](https://man7.org/linux/man-pages/man1/busctl.1.html)
