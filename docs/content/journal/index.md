@@ -45,13 +45,12 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-in-progress">In Progress</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>May 25-31, 2026</span>
     </div>
     <h2><a href="journal/week-1">Week 1</a></h2>
     <p>
-      Established the documentation structure, Bluetooth architecture direction,
-      and first BlueZ validation flows for AGL target hardware.
+      Initialized the bluez_media_native Flutter FFI plugin, generated native C++ D-Bus proxy interfaces, and pivoted focus to A2DP/AVRCP integration.
     </p>
   </article>
   <article class="journal-entry-card">
