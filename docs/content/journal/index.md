@@ -55,6 +55,36 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>June 1-7, 2026</span>
+    </div>
+    <h2><a href="journal/week-2">Week 2</a></h2>
+    <p>
+      Established C++/Dart FFI bridge, integrated glaze_meta.h binary serialization, implemented player controls (play, pause, stop, next, previous, repeat, shuffle), remote volume controller input, and AVRCP browsing.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>June 8-14, 2026</span>
+    </div>
+    <h2><a href="journal/week-3">Week 3</a></h2>
+    <p>
+      Integrated the Bluetooth settings entry point, device scanning flow, connection state, saved devices, and device details view in ivi-homescreen.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-in-progress">In Progress</span>
+      <span>June 15-21, 2026</span>
+    </div>
+    <h2><a href="journal/week-4">Week 4</a></h2>
+    <p>
+      This journal entry is still in progress and will be updated as the week's implementation notes and validation evidence are ready.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
       <span class="status-badge status-badge-in-progress">In Progress</span>
       <span>Current milestone</span>
     </div>
