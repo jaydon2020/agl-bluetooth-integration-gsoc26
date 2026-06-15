@@ -22,7 +22,7 @@ Integrated the Bluetooth entry point into the AGL settings screen and wired the
 Bluetooth switch so the UI can reflect adapter power state changes.
 
 <figure>
-  <img src="/images/journal/week-3/settings-bluetooth-on.png" alt="AGL settings screen with Bluetooth enabled." />
+  <img src="images/journal/week-3/settings-bluetooth-on.png" alt="AGL settings screen with Bluetooth enabled." />
   <figcaption>Bluetooth enabled from the settings screen.</figcaption>
 </figure>
 
@@ -33,12 +33,12 @@ and discovered device rendering. The UI now shows a clear empty state before
 scanning and updates the list as nearby devices are discovered.
 
 <figure>
-  <img src="/images/journal/week-3/bluetooth-empty-state.png" alt="Bluetooth page showing no devices found and a scan button." />
+  <img src="images/journal/week-3/bluetooth-empty-state.png" alt="Bluetooth page showing no devices found and a scan button." />
   <figcaption>Bluetooth page before scanning starts.</figcaption>
 </figure>
 
 <figure>
-  <img src="/images/journal/week-3/bluetooth-scanning-results.png" alt="Bluetooth page showing discovered devices and a stop scanning button." />
+  <img src="images/journal/week-3/bluetooth-scanning-results.png" alt="Bluetooth page showing discovered devices and a stop scanning button." />
   <figcaption>Discovered Bluetooth devices while scanning.</figcaption>
 </figure>
 
@@ -49,12 +49,12 @@ device now moves through a connecting state before showing the connected device
 with a disconnect action.
 
 <figure>
-  <img src="/images/journal/week-3/bluetooth-connecting.png" alt="Bluetooth page showing POCO F6 Pro in connecting state." />
+  <img src="images/journal/week-3/bluetooth-connecting.png" alt="Bluetooth page showing POCO F6 Pro in connecting state." />
   <figcaption>Connecting to a discovered Bluetooth device.</figcaption>
 </figure>
 
 <figure>
-  <img src="/images/journal/week-3/bluetooth-connected.png" alt="Bluetooth page showing POCO F6 Pro connected with a disconnect button." />
+  <img src="images/journal/week-3/bluetooth-connected.png" alt="Bluetooth page showing POCO F6 Pro connected with a disconnect button." />
   <figcaption>Connected device shown at the top of the Bluetooth device list.</figcaption>
 </figure>
 
@@ -66,7 +66,7 @@ paired devices under the saved devices section so the user can revisit known
 devices after scanning.
 
 <figure>
-  <img src="/images/journal/week-3/bluetooth-device-details.png" alt="Bluetooth device details dialog showing connection, paired status, address, signal, and forget device action." />
+  <img src="images/journal/week-3/bluetooth-device-details.png" alt="Bluetooth device details dialog showing connection, paired status, address, signal, and forget device action." />
   <figcaption>Device detail view for the connected phone.</figcaption>
 </figure>
 
