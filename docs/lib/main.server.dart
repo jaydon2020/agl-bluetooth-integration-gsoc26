@@ -128,6 +128,11 @@ List<ProjectSidebarSection> _buildSidebarSections() {
           ),
         ),
         _entryForPage(
+          'content/guide/bluetooth-settings.md',
+          fallbackText: 'Bluetooth Settings Module',
+          href: 'guide/bluetooth-settings',
+        ),
+        _entryForPage(
           'content/guide/remote-dbus.md',
           fallbackText: 'Remote D-Bus Inspection',
           href: 'guide/remote-dbus',

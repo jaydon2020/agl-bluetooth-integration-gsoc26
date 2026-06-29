@@ -75,20 +75,34 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-in-progress">In Progress</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>June 15-21, 2026</span>
     </div>
     <h2><a href="journal/week-4">Week 4</a></h2>
     <p>
-      This journal entry is still in progress and will be updated as the week's implementation notes and validation evidence are ready.
+      Completed the Bluetooth connection flow in `ivi-homescreen`, including
+      paired-device management, discovery, pairing, switching, disconnection,
+      and device removal.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>June 22-28, 2026</span>
+    </div>
+    <h2><a href="journal/week-5">Week 5</a></h2>
+    <p>
+      Cleaned up the Bluetooth settings code for merge request review, verified
+      the pairing flow on Raspberry Pi 5, and analyzed the BlueZ D-Bus signals
+      used by scan, pairing, connection, and disconnection.
     </p>
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
       <span class="status-badge status-badge-upcoming">Upcoming</span>
-      <span>June 22-28, 2026</span>
+      <span>June 29-July 5, 2026</span>
     </div>
-    <h2><a href="journal/week-5">Week 5</a></h2>
+    <h2><a href="journal/week-6">Week 6</a></h2>
     <p>
       This journal entry is upcoming and will be updated as the week's
       implementation notes and validation evidence are ready.
