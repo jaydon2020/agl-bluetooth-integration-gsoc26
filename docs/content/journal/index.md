@@ -99,10 +99,22 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>June 29-July 5, 2026</span>
     </div>
     <h2><a href="journal/week-6">Week 6</a></h2>
+    <p>
+      Submitted the Bluetooth pairing and connection Gerrit change, reviewed
+      native crash feedback in `bluez_native`, and shaped the next work around
+      safer D-Bus callback lifetimes plus BlueZ media metadata/control support.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>July 6-12, 2026</span>
+    </div>
+    <h2><a href="journal/week-7">Week 7</a></h2>
     <p>
       This journal entry is upcoming and will be updated as the week's
       implementation notes and validation evidence are ready.
