@@ -39,6 +39,101 @@ class FlutterDocsHeader extends StatelessComponent {
             rel: 'stylesheet',
             href: 'styles/flutter_header.css',
           ),
+          .element(
+            tag: 'style',
+            children: [
+              .text(r'''
+.mermaid,
+pre.mermaid {
+  background: #ffffff !important;
+  border: 1px solid #d8dee9 !important;
+  border-radius: 12px;
+  color: #111827 !important;
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.mermaid svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.mermaid svg text,
+.mermaid .messageText,
+.mermaid .label,
+.mermaid .loopText,
+.mermaid .noteText,
+.mermaid .actor,
+.mermaid .sequenceNumber {
+  fill: #111827 !important;
+  color: #111827 !important;
+}
+
+.mermaid .actor-line,
+.mermaid .messageLine0,
+.mermaid .messageLine1 {
+  stroke: #6d28d9 !important;
+}
+'''),
+            ],
+          ),
+          script(
+            id: 'mermaid-renderer',
+            attributes: {'type': 'module'},
+            content: r'''
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+mermaid.initialize({
+  startOnLoad: false,
+  securityLevel: 'loose',
+  theme: 'base',
+  themeVariables: {
+    background: '#ffffff',
+    mainBkg: '#eef2ff',
+    primaryColor: '#eef2ff',
+    primaryBorderColor: '#7c3aed',
+    primaryTextColor: '#111827',
+    secondaryColor: '#fef3c7',
+    tertiaryColor: '#f8fafc',
+    lineColor: '#6d28d9',
+    textColor: '#111827',
+    actorBkg: '#eef2ff',
+    actorBorder: '#7c3aed',
+    actorTextColor: '#111827',
+    actorLineColor: '#7c3aed',
+    signalColor: '#374151',
+    signalTextColor: '#111827',
+    noteBkgColor: '#fef3c7',
+    noteBorderColor: '#d97706',
+    noteTextColor: '#111827',
+    labelTextColor: '#111827',
+    loopTextColor: '#111827',
+    sequenceNumberColor: '#ffffff',
+  },
+  themeCSS: `
+    .label,
+    .messageText,
+    .loopText,
+    .noteText,
+    .actor,
+    text {
+      fill: #111827 !important;
+      color: #111827 !important;
+    }
+  `,
+});
+
+document.querySelectorAll('pre > code.language-mermaid').forEach((code) => {
+  const container = document.createElement('div');
+  container.className = 'mermaid';
+  container.textContent = code.textContent;
+  code.parentElement.replaceWith(container);
+});
+
+await mermaid.run({querySelector: '.mermaid'});
+''',
+          ),
         ],
       ),
       header(id: 'site-header', [

@@ -111,10 +111,23 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>July 6-12, 2026</span>
     </div>
     <h2><a href="journal/week-7">Week 7</a></h2>
+    <p>
+      Created the AGL Jira issue, removed package changes from the homescreen
+      Gerrit review, traced the native Bluetooth crash to a toolchain and ABI
+      mismatch, and opened a focused PR for setTrusted, Pairable, and
+      Discoverable support.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>July 13-19, 2026</span>
+    </div>
+    <h2><a href="journal/week-8">Week 8</a></h2>
     <p>
       This journal entry is upcoming and will be updated as the week's
       implementation notes and validation evidence are ready.
@@ -122,13 +135,24 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-in-progress">In Progress</span>
-      <span>Current milestone</span>
+      <span class="status-badge status-badge-neutral">In Review</span>
+      <span>Under review</span>
     </div>
-    <h2>Setup Bluetooth connect and pairing UI</h2>
+    <h2><a href="guide/bluetooth-settings">Setup Bluetooth connect and pairing UI</a></h2>
     <p>
       Run the GAP and A2DP checklists on hardware, capture BlueZ and PipeWire logs,
       and refine plugin-facing assumptions from real target behavior.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-in-progress">In Progress</span>
+      <span>Current milestone</span>
+    </div>
+    <h2>Bluetooth Media Player</h2>
+    <p>
+      Implement Bluetooth media playback controls, metadata display, and media
+      state handling through BlueZ and the native Flutter integration.
     </p>
   </article>
   <article class="journal-entry-card">

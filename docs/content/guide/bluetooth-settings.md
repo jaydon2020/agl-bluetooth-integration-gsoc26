@@ -389,6 +389,316 @@ Simulate pairing scenarios in headless CI using `dbus-broker` and python mock sc
 | **Swap Connection** | Connect Device B while Device A is connected. | "Switch Bluetooth Device?" dialog displays. Swapping disconnects A, then connects B. |
 | **Authentication Cancel** | Click cancel on Passkey verification popup. | Modal dismisses, error gets caught, and list remains intact. |
 
+---
+
+## 14. Implementation Flow Reference
+
+This section merges the detailed Bluetooth technical-flow notes into the main
+Bluetooth settings guide so the settings module has one source of truth.
+
+The implementation reference is for maintainers, reviewers, and testers. It
+documents the behavior implemented by the Flutter ICS homescreen; it is not a
+generic BlueZ tutorial.
+
+Relevant implementation files:
+
+- `lib/data/data_providers/bluetooth_notifier.dart` — state, lifecycle, policy,
+  pairing, connection switching, and cleanup.
+- `lib/presentation/screens/settings/settings_screens/bluetooth/bluetooth_screen.dart`
+  — paired-device page shell.
+- `lib/presentation/screens/settings/settings_screens/bluetooth/widgets/bluetooth_content.dart`
+  — paired-device list and actions.
+- `lib/presentation/screens/settings/settings_screens/bluetooth/bluetooth_scan_screen.dart`
+  — scan-page shell.
+- `lib/presentation/screens/settings/settings_screens/bluetooth/widgets/bluetooth_scan_content.dart`
+  — scan lifecycle and discovered-device actions.
+- `lib/presentation/screens/settings/settings_screens/bluetooth/widgets/bluetooth_pairing_request.dart`
+  — pairing and device-switch overlay.
+- `packages/bluez_native/lib/src/` and `packages/bluez_native/native/src/` —
+  Dart/FFI/native bridge to BlueZ.
+
+### Terms
+
+- **Bluetooth page**: either `AppState.bluetooth` (paired-device list) or
+  `AppState.bluetoothScan` (scan page), unless a section specifically names one
+  of them.
+- **External/remote action**: pairing or connection initiated outside the AGL
+  UI, typically from a phone's Bluetooth settings.
+- **Busy device**: the device whose address equals `state.busyAddress`; it is
+  the only device for which an app-initiated operation is currently in progress.
+- **Synthetic request**: an app-created `BlueZAgentRequest` with a negative
+  request ID. It drives the device-switch dialog and must not be sent back to
+  BlueZ.
+
+### Executive Behavior Summary
+
+1. The notifier connects to BlueZ once and registers a `KeyboardDisplay` pairing
+   agent for its entire lifetime.
+2. The Settings switch controls adapter power. Turning on first attempts
+   `rfkill unblock bluetooth`; turning off stops discovery and clears active UI
+   operations.
+3. The paired-device page lists only paired devices. Connected devices appear
+   first, then the remainder alphabetically.
+4. The scan page lists only unpaired devices, strongest RSSI first. Discovery
+   stops after two minutes and can be restarted with **Refresh**.
+5. Selecting a device performs **pair → trust → connect**. The app does not
+   render GATT services and does not call `waitForServicesResolved()`.
+6. Only one Bluetooth device is intended to remain connected. Connecting another
+   device requires an explicit switch confirmation.
+7. Remote pairing and connection are constrained by the active page.
+
+### Page and Remote-Action Policy Matrix
+
+| Current app state | Local action from AGL UI | Pairing initiated remotely | Connection initiated remotely |
+| :--- | :--- | :--- | :--- |
+| Any page other than `bluetooth` or `bluetoothScan` | No Bluetooth device controls are visible. | Rejected. Non-service agent requests are rejected because the app is neither scanning nor operating on that device. | Blocked. `authorizeService` is rejected, and a newly observed external connection is immediately disconnected. |
+| Paired-device page (`AppState.bluetooth`) | Paired devices may be connected, disconnected, or removed. | Rejected unless the request belongs to the device currently being operated by the app. Merely opening this page does **not** permit unsolicited new pairing. | An already-paired device may be authorized when no other device is connected. If another device is connected, the app asks whether to switch. |
+| Scan page (`AppState.bluetoothScan`) while discovery is active | An unpaired device may be selected; the app pairs, trusts, and connects it. | Allowed to reach the pairing overlay because `state.scanning == true`. The user must confirm or enter the requested PIN/passkey when required. | A paired device may connect. If another device is connected, the app holds the incoming connection and asks whether to switch. |
+| Scan page after the two-minute timeout | **Refresh** restarts discovery. | Rejected because `state.scanning == false`, unless it belongs to the current busy device. | The general Bluetooth-page connection rules still apply because the route remains `bluetoothScan`. |
+
+Important distinctions:
+
+- Outside the Bluetooth pages, remote pairing and remote connecting are blocked.
+  Service authorization is rejected and a connection that nevertheless appears
+  is disconnected.
+- The pairing agent remains registered outside the Bluetooth pages specifically
+  so the application can enforce this policy.
+- The paired-device page permits reconnection of an already-paired device; it
+  does not permit unsolicited pairing of a new device.
+- A request for the app's current busy device is treated as part of the
+  app-initiated operation, not as unsolicited remote activity.
+
+### Bluetooth State Fields
+
+| Field | Meaning |
+| :--- | :--- |
+| `devices` | Immutable snapshot of all BlueZ devices known to the notifier. |
+| `powered` | Current adapter power state. |
+| `changingPower` | Prevents concurrent/repeated power changes and disables the Settings switch. |
+| `scanning` | True while the adapter is powered and discovery is active. |
+| `pairable` / `discoverable` | Observed BlueZ adapter properties. The current app does not set them. |
+| `scanTimedOut` | Selects the scan-timeout UI and **Refresh** action. |
+| `busyAddress` | Serializes device operations globally and identifies the row showing progress. |
+| `operation` | `connecting`, `disconnecting`, `removing`, or `switching`; controls progress text. |
+| `pairingRequest` | Current BlueZ agent request or synthetic device-switch request. |
+| `error` | One-shot user-facing error; UI shows a snackbar only when `showBluetoothErrors` is enabled, then clears it. |
+
+Derived lists:
+
+- `pairedDevices`: paired only; connected first, then sorted by display name.
+- `unpairedDevices`: unpaired only; sorted by RSSI descending.
+- Display name fallback: non-empty alias → non-empty name → Bluetooth address.
+
+### Adapter Power Flow
+
+The Settings Bluetooth tile watches `BluetoothState.powered`. The tile cannot
+open the Bluetooth page while power is off, and its switch is disabled while
+`changingPower` is true.
+
+Turning on:
+
+1. Ignore the request if there is no adapter, power is already on, or a power
+   change is active.
+2. Set `changingPower = true` and clear the previous error.
+3. Best-effort run `rfkill unblock bluetooth`.
+4. Call `BlueZAdapter.setPowered(true)`; the package also performs a
+   best-effort rfkill unblock.
+5. Wait 500 ms and read the adapter state.
+6. Publish the result and clear `changingPower`.
+
+Turning off:
+
+1. Stop discovery and cancel the scan timer.
+2. Call `setPowered(false)`.
+3. Clear any busy operation and pairing overlay.
+4. Adapter events also update `powered`, `scanning`, `pairable`, and
+   `discoverable`.
+
+Turning the adapter off does not explicitly remove paired devices. BlueZ remains
+the source of truth for device objects and pairing records.
+
+### Pairing-Agent Request Handling Details
+
+For normal BlueZ requests (`requestId >= 0`), confirm/reject is returned through
+`agentRespond`. For synthetic switch requests (`requestId == -1` or `-2`), no
+response is sent to BlueZ.
+
+For agent request types other than `authorizeService`, `cancel`, and `release`,
+the request is rejected when both conditions are true:
+
+- discovery is not active; and
+- the request is not for `state.busyAddress`.
+
+This blocks a phone from initiating a new pairing while the user is elsewhere in
+the app or merely viewing the paired-device page.
+
+`authorizeService` is evaluated in this order:
+
+1. Unknown device path → reject.
+2. Request belongs to the busy device → accept as part of the app-initiated
+   operation.
+3. Current route is not `bluetooth` or `bluetoothScan` → reject.
+4. Another device is connected → retain the request and show the switch dialog.
+5. Otherwise → accept only if the requesting device is already paired.
+
+### Remote and External Connection Tracking
+
+Every `deviceAdded` and `deviceChanged` event updates `_connectedAddresses`. A
+transition from disconnected to connected is considered a new connection.
+
+The disconnect outside the Bluetooth pages is best-effort and asynchronous. The
+connection signal is republished immediately after the app removes the address
+from its tracking set.
+
+At initialization, if BlueZ already reports multiple connected devices and no
+pairing dialog is active, the app stages a switch for the last device in the
+collected list. Device ordering comes from BlueZ's snapshot and should not be
+treated as a user preference.
+
+### Device-Switch Variants
+
+- **ID `-1` — local pair/connect found an existing connection**: the target is
+  already paired and trusted. The dialog says pairing succeeded and asks whether
+  to disconnect the current device and connect the target.
+- **ID `-2` — external connection detected while another device is active**: the
+  incoming target is disconnected first, then the dialog asks whether to replace
+  the current connection.
+- A real `authorizeService` request with another device connected also uses the
+  same switch UI, but retains its non-negative BlueZ request ID.
+
+On **Switch**:
+
+1. Mark the target busy with operation `switching` and disable dialog actions.
+2. Disconnect the current device.
+3. If this is a real BlueZ request, accept it.
+4. Wait up to 3 seconds for a paired-state update when applicable; call `pair()`
+   if still unpaired.
+5. Set the target trusted if necessary.
+6. Wait up to 500 ms for an automatic connection; call `connect()` if still
+   disconnected.
+7. Publish state and navigate to the paired-device page.
+
+If switching fails, the app rejects the still-pending real request when possible,
+cleans up the target, and makes a best-effort attempt to reconnect the previous
+device. Rollback failure is logged but does not replace the main switch error.
+
+On **Cancel**:
+
+- A real BlueZ request is rejected and the target is cleaned up.
+- Synthetic ID `-1` clears the dialog and restarts scan mode.
+- Synthetic ID `-2` clears the dialog; the incoming device was already
+  disconnected when the dialog was staged.
+
+### Disconnect and Remove Actions
+
+Disconnect:
+
+- Available only on a connected paired-device row.
+- Sets the row operation to `disconnecting`.
+- Calls `BlueZDevice.disconnect()` and publishes device/signal state.
+- Keeps the BlueZ pairing record and trust state.
+
+Remove:
+
+- Available from the paired-device row's delete control.
+- Sets the row operation to `removing`.
+- Disconnects first if connected.
+- Calls `BlueZAdapter.removeDevice(objectPath)` and removes the device from the
+  notifier map.
+- Removes the BlueZ device/pairing record; future use requires discovery and
+  pairing again.
+
+Only one device operation can run at a time because all actions return early
+while `busyAddress` is non-null.
+
+### Failure and Cleanup Behavior
+
+`_cleanupFailedPairing` performs best-effort cleanup:
+
+1. Unless BlueZ already issued `cancel`/`release`, call `cancelPairing()` by
+   default.
+2. Disconnect the target if it is connected.
+3. Log cleanup errors without hiding the original operation error.
+
+Explicit user rejection generally rejects the agent request, cleans up the
+target, clears the overlay, and restarts discovery. BlueZ agent cancellation
+clears the overlay, avoids redundantly calling `cancelPairing()`, disconnects if
+needed, and also attempts to restart discovery.
+
+Errors are stored in `BluetoothState.error`. The Bluetooth page, scan page, and
+Settings Bluetooth tile listen for them. Depending on `showBluetoothErrors`, the
+message is either shown once in a snackbar or silently cleared.
+
+### Connection Indicator
+
+Whenever devices are published, the notifier calls
+`signalsProvider.toggleBluetooth(any known device is connected)`.
+
+This signal represents connection presence, not adapter power. Therefore
+Bluetooth may be powered on while the connection indicator is false.
+
+### Important Implementation Limits and Invariants
+
+- The app uses only the first BlueZ adapter.
+- The agent is application-lifetime, not scan-page-lifetime.
+- Scan mode changes discovery only. It does not make the adapter
+  pairable/discoverable or modify `DiscoverableTimeout`.
+- The two-minute timer stops discovery; it is unrelated to BlueZ's discoverable
+  timeout.
+- The intended invariant is at most one connected device.
+- All local device operations are globally serialized by `busyAddress`.
+- External connections are allowed only while one of the two Bluetooth routes is
+  active; outside them they are disconnected.
+- Unsolicited new pairing is allowed only during active discovery; opening the
+  paired-device page alone is insufficient.
+- Already-paired remote devices may reconnect on a Bluetooth page, subject to
+  service authorization and device switching.
+- Trust is set automatically after successful local pairing and before
+  connection.
+- GATT service resolution is not part of the homescreen flow.
+- Pairable/discoverable state depends on external BlueZ configuration because
+  the current app only observes those properties.
+- Native connect/disconnect helpers wait for property changes for up to 10/5
+  seconds respectively, but return silently if those waits time out after the
+  underlying D-Bus call succeeds.
+
+### Verification Checklist
+
+1. With Bluetooth off, the Settings row cannot open and the switch can power the
+   adapter on.
+2. Opening **Scan for New Device** starts discovery and lists only unpaired
+   devices by descending RSSI.
+3. After two minutes, discovery stops and **Refresh** starts a new two-minute
+   scan.
+4. Leaving the scan page stops discovery and clears any pending pairing overlay.
+5. Selecting an unpaired device completes pair → trust → connect.
+6. Cancelling or failing pairing disconnects/cleans the target and resumes
+   discovery when possible.
+7. Connecting a second device shows **Switch Device?** and never intentionally
+   leaves both devices connected.
+8. Cancelling a switch preserves the original connection and leaves the target
+   disconnected.
+9. A failed switch attempts to restore the original connection.
+10. From a non-Bluetooth page, initiate pairing on a phone: the request is
+    rejected and no pairing dialog appears.
+11. From a non-Bluetooth page, connect from an already-paired phone: service
+    authorization is rejected and any observed connection is disconnected.
+12. On the paired-device page, attempt new remote pairing without scanning: it
+    is rejected.
+13. On the paired-device page with no current connection, connect an
+    already-paired phone: it may connect.
+14. On either Bluetooth page with another device connected, remote connection
+    triggers a switch prompt.
+15. Disconnect preserves pairing; Remove deletes the BlueZ device record.
+16. Adapter power and the connection indicator behave independently.
+
+### Source-of-Truth Note
+
+When this document and code disagree, `BluetoothNotifier` and its current call
+sites are the behavioral source of truth. Update this document in the same
+change whenever page policy, agent lifetime, timeout behavior, or the
+single-connection rule changes.
+
 <style>
   .mermaid {
     background: #ffffff !important;
