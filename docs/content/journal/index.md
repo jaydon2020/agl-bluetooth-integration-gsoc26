@@ -124,10 +124,21 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>July 13-19, 2026</span>
     </div>
     <h2><a href="journal/week-8">Week 8</a></h2>
+    <p>
+      Tested the BlueZ Bluetooth stack and recorded the validation notes for
+      review.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>July 20-26, 2026</span>
+    </div>
+    <h2><a href="journal/week-9">Week 9</a></h2>
     <p>
       This journal entry is upcoming and will be updated as the week's
       implementation notes and validation evidence are ready.

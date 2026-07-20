@@ -1,16 +1,27 @@
 ---
 title: Week 8
-description: July 13, 2026 to July 19, 2026. Upcoming.
+description: Progress summary for Week 8 (July 13-19, 2026) of the AGL Bluetooth Integration project.
 ---
 
-<div class="report-upcoming-card">
-  <p class="report-upcoming-eyebrow">Upcoming</p>
-  <h2>Week 8</h2>
-  <p>
-    July 13, 2026 to July 19, 2026.
-  </p>
-  <p>
-    This journal entry is upcoming and will be updated as the week's
-    implementation notes and validation evidence are ready.
-  </p>
-</div>
+Week 8 focused on testing the BlueZ Bluetooth stack and recording the results
+for review.
+
+## Status
+
+- **Status**: Completed
+- **Timeline**: July 13, 2026 to July 19, 2026
+- **Test notes**: [BlueZ testing document](https://docs.google.com/document/d/1c-q1AKnGtopV40o8Gy9I7oGWBX_UCc5-BVQo-t8v95k/edit?tab=t.0#heading=h.ca5aks1iyk7b)
+
+---
+
+## Progress
+
+### Tested the BlueZ Stack
+
+Tested the BlueZ Bluetooth behavior and captured the testing notes in the linked
+document. This week was limited to BlueZ validation work rather than new
+homescreen UI or plugin implementation.
+
+## Links
+
+- **BlueZ testing document**: [Google Docs](https://docs.google.com/document/d/1c-q1AKnGtopV40o8Gy9I7oGWBX_UCc5-BVQo-t8v95k/edit?tab=t.0#heading=h.ca5aks1iyk7b)
