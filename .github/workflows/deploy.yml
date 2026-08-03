@@ -49,11 +49,11 @@ jobs:
         working-directory: docs
 
       - name: Install Jaspr CLI
-        run: dart pub global activate jaspr_cli
+        run: dart pub global activate jaspr_cli 0.23.2
 
       - name: Build Static Site
         run: |
-          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          export PATH="$HOME/.pub-cache/bin:$PATH"
           jaspr build
         working-directory: docs
 
