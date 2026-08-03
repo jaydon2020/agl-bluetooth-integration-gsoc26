@@ -146,6 +146,30 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>July 27-August 2, 2026</span>
+    </div>
+    <h2><a href="journal/week-10">Week 10</a></h2>
+    <p>
+      Updated the Bluetooth pairing Gerrit review to use the published
+      `bluez_native 0.3.1` package, added Flutter SDK compatibility overrides,
+      summarized mentor review notes, and clarified the post-midterm GSoC goal
+      order: audio player, phone, contacts, then stretch message support.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>August 3-9, 2026</span>
+    </div>
+    <h2><a href="journal/week-11">Week 11</a></h2>
+    <p>
+      This journal entry is upcoming and will be updated as the week's
+      implementation notes and validation evidence are ready.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
       <span class="status-badge status-badge-neutral">In Review</span>
       <span>Under review</span>
     </div>
