@@ -15,6 +15,7 @@ import 'package:jaspr_content/components/code_block.dart';
 import 'package:jaspr_content/components/image.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
+import 'package:jaspr_router/jaspr_router.dart';
 
 import 'components/clicker.dart';
 import 'components/dart_footer.dart';
@@ -118,14 +119,20 @@ final class _BaseAwareTableOfContents extends TableOfContents {
   const _BaseAwareTableOfContents(super.entries);
 
   @override
-  Component build() => ul([..._buildEntries(entries)]);
+  Component build() => Builder(
+    builder: (context) {
+      final path = RouteState.of(context).path ?? '';
+      final relativePath = path.startsWith('/') ? path.substring(1) : path;
+      return ul([..._buildEntries(entries, relativePath)]);
+    },
+  );
 
-  Iterable<Component> _buildEntries(List<TocEntry> entries, [int indent = 0]) sync* {
+  Iterable<Component> _buildEntries(List<TocEntry> entries, String path, [int indent = 0]) sync* {
     for (final entry in entries) {
       yield li(styles: Styles(padding: Padding.only(left: (0.75 * indent).em)), [
-        a(href: '#${entry.id}', [.text(entry.text)]),
+        a(href: '$path#${entry.id}', [.text(entry.text)]),
       ]);
-      yield* _buildEntries(entry.children, indent + 1);
+      yield* _buildEntries(entry.children, path, indent + 1);
     }
   }
 }

@@ -40,8 +40,7 @@ final class _TocScrollSpyState extends State<TocScrollSpy> {
     for (var index = 0; index < links.length; index++) {
       final link = links.item(index) as web.Element?;
       final href = link?.getAttribute('href') ?? '';
-      final fragmentIndex = href.indexOf('#');
-      if (fragmentIndex >= 0) link?.setAttribute('href', href.substring(fragmentIndex));
+      if (href.startsWith('/')) link?.setAttribute('href', href.substring(1));
     }
   }
 
