@@ -170,6 +170,17 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>August 24-30, 2026</span>
+    </div>
+    <h2><a href="journal/week-14">Week 14</a></h2>
+    <p>
+      This journal entry is upcoming and will be updated as the week's
+      implementation notes and validation evidence are ready.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
       <span class="status-badge status-badge-neutral">In Review</span>
       <span>Under review</span>
     </div>
