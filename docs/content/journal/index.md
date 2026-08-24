@@ -159,13 +159,35 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-in-progress">In Progress</span>
       <span>August 3-9, 2026</span>
     </div>
     <h2><a href="journal/week-11">Week 11</a></h2>
     <p>
-      This journal entry is upcoming and will be updated as the week's
-      implementation notes and validation evidence are ready.
+      Implemented and tested native BlueZ media support for Dart and Flutter,
+      including playback controls, metadata, media browsing, and cover art.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>August 10-16, 2026</span>
+    </div>
+    <h2><a href="journal/week-12">Week 12</a></h2>
+    <p>
+      Integrated Bluetooth media metadata, playback controls, phone volume,
+      and direct AVRCP cover-art retrieval into the AGL homescreen.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>August 17-23, 2026</span>
+    </div>
+    <h2><a href="journal/week-13">Week 13</a></h2>
+    <p>
+      Uploaded patch set 6 for the Bluetooth pairing and connection workflow,
+      documented runtime sequences, and prepared BlueZ crash verification.
     </p>
   </article>
   <article class="journal-entry-card">
