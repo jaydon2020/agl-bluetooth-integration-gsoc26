@@ -7,7 +7,7 @@ library;
 import 'dart:io';
 
 // Server-specific Jaspr import.
-import 'package:jaspr/dom.dart' show Color;
+import 'package:jaspr/dom.dart' show Color, Padding, Styles, UnitExt, a, li, ul;
 import 'package:jaspr/server.dart';
 
 import 'package:jaspr_content/components/callout.dart';
@@ -49,7 +49,7 @@ void main() {
         // Adds heading anchors to each heading.
         HeadingAnchorsExtension(),
         // Generates a table of contents for each page.
-        TableOfContentsExtension(),
+        const _BaseAwareTableOfContentsExtension(),
       ],
       components: [
         // The <Info> block and other callouts.
@@ -99,6 +99,35 @@ void main() {
       ),
     ),
   );
+}
+
+final class _BaseAwareTableOfContentsExtension implements PageExtension {
+  const _BaseAwareTableOfContentsExtension();
+
+  @override
+  Future<List<Node>> apply(Page page, List<Node> nodes) async {
+    final updatedNodes = await const TableOfContentsExtension().apply(page, nodes);
+    if (page.data['toc'] case final TableOfContents toc) {
+      page.apply(data: {'toc': _BaseAwareTableOfContents(toc.entries)});
+    }
+    return updatedNodes;
+  }
+}
+
+final class _BaseAwareTableOfContents extends TableOfContents {
+  const _BaseAwareTableOfContents(super.entries);
+
+  @override
+  Component build() => ul([..._buildEntries(entries)]);
+
+  Iterable<Component> _buildEntries(List<TocEntry> entries, [int indent = 0]) sync* {
+    for (final entry in entries) {
+      yield li(styles: Styles(padding: Padding.only(left: (0.75 * indent).em)), [
+        a(href: '#${entry.id}', [.text(entry.text)]),
+      ]);
+      yield* _buildEntries(entry.children, indent + 1);
+    }
+  }
 }
 
 List<ProjectSidebarSection> _buildSidebarSections() {
@@ -218,9 +247,9 @@ List<ProjectSidebarEntry> _entriesForDirectory(
       })
       .toList();
 
-  entries.sort((a, b) {
-    final aOrder = preferredOrder.indexOf(_lastSegment(a.href));
-    final bOrder = preferredOrder.indexOf(_lastSegment(b.href));
+  entries.sort((left, right) {
+    final aOrder = preferredOrder.indexOf(_lastSegment(left.href));
+    final bOrder = preferredOrder.indexOf(_lastSegment(right.href));
 
     if (aOrder != -1 || bOrder != -1) {
       if (aOrder == -1) return 1;
@@ -228,7 +257,7 @@ List<ProjectSidebarEntry> _entriesForDirectory(
       return aOrder.compareTo(bOrder);
     }
 
-    return a.text.compareTo(b.text);
+    return left.text.compareTo(right.text);
   });
 
   return entries;

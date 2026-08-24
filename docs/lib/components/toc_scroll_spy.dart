@@ -24,6 +24,7 @@ final class _TocScrollSpyState extends State<TocScrollSpy> {
         .forTarget(web.document)
         .listen((_) => _updateActiveItem());
     _resizeSubscription = web.EventStreamProviders.resizeEvent.forTarget(web.window).listen((_) => _updateActiveItem());
+    _normalizeHeadingAnchors();
     Timer.run(_updateActiveItem);
   }
 
@@ -32,6 +33,16 @@ final class _TocScrollSpyState extends State<TocScrollSpy> {
     unawaited(_scrollSubscription?.cancel());
     unawaited(_resizeSubscription?.cancel());
     super.dispose();
+  }
+
+  void _normalizeHeadingAnchors() {
+    final links = web.document.querySelectorAll('main [anchor="true"] > a[href*="#"]');
+    for (var index = 0; index < links.length; index++) {
+      final link = links.item(index) as web.Element?;
+      final href = link?.getAttribute('href') ?? '';
+      final fragmentIndex = href.indexOf('#');
+      if (fragmentIndex >= 0) link?.setAttribute('href', href.substring(fragmentIndex));
+    }
   }
 
   void _updateActiveItem() {
