@@ -159,7 +159,7 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-in-progress">In Progress</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>August 3-9, 2026</span>
     </div>
     <h2><a href="journal/week-11">Week 11</a></h2>

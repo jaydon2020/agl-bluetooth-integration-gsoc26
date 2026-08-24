@@ -349,7 +349,7 @@ sequenceDiagram
 </pre>
 
 Detailed versions with activations and D-Bus object interactions are available
-in the [AGL Bluetooth Settings Module](/guide/bluetooth-settings).
+in the [AGL Bluetooth Settings Module](guide/bluetooth-settings).
 
 ### 3. Prepared BlueZ Media-Player Verification
 
@@ -373,5 +373,5 @@ but I have not tested the series yet.
 ## Links
 
 - **Gerrit review**: [flutter-ics-homescreen change 31887](https://gerrit.automotivelinux.org/gerrit/c/apps/flutter-ics-homescreen/+/31887)
-- **Bluetooth settings module**: [AGL Bluetooth Settings Module](/guide/bluetooth-settings)
+- **Bluetooth settings module**: [AGL Bluetooth Settings Module](guide/bluetooth-settings)
 - **BlueZ crash verification**: [GitHub issue #5](https://github.com/jaydon2020/agl-bluetooth-integration-gsoc26/issues/5) and [George's Patchwork series 1149990](https://patchwork.kernel.org/project/bluetooth/list/?series=1149990)
