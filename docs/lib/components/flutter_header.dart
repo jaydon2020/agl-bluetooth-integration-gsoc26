@@ -64,10 +64,15 @@ pre.mermaid {
 .mermaid .label,
 .mermaid .loopText,
 .mermaid .noteText,
-.mermaid .actor,
+.mermaid text.actor,
 .mermaid .sequenceNumber {
   fill: #111827 !important;
   color: #111827 !important;
+}
+
+.mermaid rect.actor {
+  fill: #eef2ff !important;
+  stroke: #7c3aed !important;
 }
 
 .mermaid .actor-line,
@@ -116,7 +121,7 @@ mermaid.initialize({
     .messageText,
     .loopText,
     .noteText,
-    .actor,
+    text.actor,
     text {
       fill: #111827 !important;
       color: #111827 !important;
