@@ -192,13 +192,26 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>August 24-30, 2026</span>
     </div>
     <h2><a href="journal/week-14">Week 14</a></h2>
     <p>
-      This journal entry is upcoming and will be updated as the week's
-      implementation notes and validation evidence are ready.
+      Tested the BlueZ MediaItem player patch series and hardened OBEX cover-art
+      retrieval in `bluez_media_native`, integrated it into
+      `flutter-ics-homescreen`, and validated initial HFP telephony through
+      PipeWire on Raspberry Pi 5.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>August 31-September 6, 2026</span>
+    </div>
+    <h2><a href="journal/week-15">Week 15</a></h2>
+    <p>
+      Prepare the Bluetooth audio player merge requests, make PipeWire and
+      WirePlumber the default Yocto HFP backend, and plan homescreen telephony.
     </p>
   </article>
   <article class="journal-entry-card">
