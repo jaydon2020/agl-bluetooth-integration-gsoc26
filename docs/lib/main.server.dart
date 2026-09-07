@@ -212,6 +212,7 @@ List<ProjectSidebarSection> _buildSidebarSections() {
               'week-13',
               'week-14',
               'week-15',
+              'week-16',
             ],
           ),
         ),

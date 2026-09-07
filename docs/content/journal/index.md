@@ -205,13 +205,25 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>August 31-September 6, 2026</span>
     </div>
     <h2><a href="journal/week-15">Week 15</a></h2>
     <p>
-      Prepare the Bluetooth audio player merge requests, make PipeWire and
-      WirePlumber the default Yocto HFP backend, and plan homescreen telephony.
+      Merged the Bluetooth pairing UI and <code>bluez_native</code> support,
+      reviewed AGL's new native Flutter plugin build class, and documented the
+      PipeWire native-HFP D-Bus call-control path.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>September 7-13, 2026</span>
+    </div>
+    <h2><a href="journal/week-16">Week 16</a></h2>
+    <p>
+      Begin homescreen PipeWire telephony integration and validate HFP call
+      control plus SCO audio routing on Raspberry Pi 5.
     </p>
   </article>
   <article class="journal-entry-card">
