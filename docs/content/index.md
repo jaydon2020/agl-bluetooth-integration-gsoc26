@@ -85,10 +85,10 @@ description: JianDe's GSoC 2026 contributor portfolio for modern Bluetooth integ
     <strong>Weekly Progress Journal</strong>
     <span>Follow weekly implementation notes, evidence to capture, and next steps.</span>
   </a>
-  <a class="quick-card" href="journal/week-11">
+  <a class="quick-card" href="journal/week-17">
     <span class="material-symbols" aria-hidden="true" translate="no">event_upcoming</span>
-    <strong>Week 11 Upcoming</strong>
-    <span>Open the Week 11 placeholder for August 3, 2026 to August 9, 2026.</span>
+    <strong>Week 17 Upcoming</strong>
+    <span>Open the Week 17 placeholder for September 14, 2026 to September 20, 2026.</span>
   </a>
   <a class="quick-card" href="report/midterm">
     <span class="material-symbols" aria-hidden="true" translate="no">assignment</span>

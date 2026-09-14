@@ -217,12 +217,23 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>September 7-13, 2026</span>
     </div>
     <h2><a href="journal/week-16">Week 16</a></h2>
     <p>
-      Begin homescreen PipeWire telephony integration and validate HFP call
+      Prepared <code>bluez_media_native</code> for release to pub.dev and
+      documented the pending AGL ownership decision.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>September 14-20, 2026</span>
+    </div>
+    <h2><a href="journal/week-17">Week 17</a></h2>
+    <p>
+      Complete homescreen PipeWire telephony integration and validate HFP call
       control plus SCO audio routing on Raspberry Pi 5.
     </p>
   </article>
