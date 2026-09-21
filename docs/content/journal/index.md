@@ -228,13 +228,25 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>September 14-20, 2026</span>
     </div>
     <h2><a href="journal/week-17">Week 17</a></h2>
     <p>
-      Complete homescreen PipeWire telephony integration and validate HFP call
-      control plus SCO audio routing on Raspberry Pi 5.
+      Submitted Bluetooth media playback support for the homescreen, enabled
+      OBEX and experimental BlueZ support in Yocto, and included the MediaItem
+      fix patch series.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>September 21-27, 2026</span>
+    </div>
+    <h2><a href="journal/week-18">Week 18</a></h2>
+    <p>
+      This journal entry is upcoming and will be updated as the week's
+      implementation notes and validation evidence are ready.
     </p>
   </article>
   <article class="journal-entry-card">
