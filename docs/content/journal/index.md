@@ -240,13 +240,24 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>September 21-27, 2026</span>
     </div>
     <h2><a href="journal/week-18">Week 18</a></h2>
     <p>
-      This journal entry is upcoming and will be updated as the week's
-      implementation notes and validation evidence are ready.
+      Published the updated <code>bluez_media_native</code> package to pub.dev
+      and verified it against the Yocto master with cover-art instructions.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>September 28-October 4, 2026</span>
+    </div>
+    <h2><a href="journal/week-19">Week 19</a></h2>
+    <p>
+      Integrate HFP calling and phone contacts into Flutter through
+      <code>flutter-ics-homescreen</code> and validate the Raspberry Pi 5 flows.
     </p>
   </article>
   <article class="journal-entry-card">
