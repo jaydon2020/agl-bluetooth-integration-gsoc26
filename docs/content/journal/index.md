@@ -251,12 +251,34 @@ Use this timeline to track weekly GSoC progress, evidence captured from the targ
   </article>
   <article class="journal-entry-card">
     <div class="journal-entry-meta">
-      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span class="status-badge status-badge-completed">Completed</span>
       <span>September 28-October 4, 2026</span>
     </div>
     <h2><a href="journal/week-19">Week 19</a></h2>
     <p>
-      Integrate HFP calling and phone contacts into Flutter through
+      Completed <code>pipewire_telephony_native</code> development and AGL
+      Raspberry Pi 5 testing.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-completed">Completed</span>
+      <span>October 5-11, 2026</span>
+    </div>
+    <h2><a href="journal/week-20">Week 20</a></h2>
+    <p>
+      Completed <code>bluez_obex_native</code> development and AGL Raspberry Pi
+      5 testing.
+    </p>
+  </article>
+  <article class="journal-entry-card">
+    <div class="journal-entry-meta">
+      <span class="status-badge status-badge-upcoming">Upcoming</span>
+      <span>October 12-18, 2026</span>
+    </div>
+    <h2><a href="journal/week-21">Week 21</a></h2>
+    <p>
+      Continue integrating HFP calling and phone contacts into Flutter through
       <code>flutter-ics-homescreen</code> and validate the Raspberry Pi 5 flows.
     </p>
   </article>
