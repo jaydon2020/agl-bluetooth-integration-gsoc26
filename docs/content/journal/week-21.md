@@ -19,6 +19,9 @@ OBEX libraries.
 
 ## AGL UI Validation
 
+All full and partial telephone numbers shown in the screenshots are masked for
+privacy.
+
 The AGL launcher exposes the Phone and Messages applications alongside the
 other homescreen applications. The shared left-side controls provide volume,
 playback, and mute access, while the bottom navigation keeps Home, HVAC, Media,
@@ -43,8 +46,8 @@ Each entry shows the contact or number, direction, timestamp, and a call-back
 button.
 
 <figure>
-  <img src="images/journal/week-21/PXL_20261019_133411890.jpg" alt="AGL Phone Recents view showing recent incoming and outgoing calls with contact names, numbers, timestamps, and call-back buttons." />
-  <figcaption>Recent-call history with direction indicators and one-touch call-back actions.</figcaption>
+  <img src="images/journal/week-21/PXL_20261019_133411890.jpg" alt="AGL Phone Recents view showing recent incoming and outgoing calls with contact names, privacy-masked numbers, timestamps, and call-back buttons." />
+  <figcaption>Recent-call history with privacy-masked numbers, direction indicators, and one-touch call-back actions.</figcaption>
 </figure>
 
 The Contacts view loads the phone book alphabetically and includes contact
@@ -60,8 +63,8 @@ keypad, hold, and end-call controls are presented as large touch targets for
 in-vehicle use.
 
 <figure>
-  <img src="images/journal/week-21/PXL_20261019_133436879.jpg" alt="AGL active-call screen showing a calling number and large Mute, Keypad, Hold, and End call controls." />
-  <figcaption>Active HFP call screen with the primary call-control actions.</figcaption>
+  <img src="images/journal/week-21/PXL_20261019_133436879.jpg" alt="AGL active-call screen showing a privacy-masked calling number and large Mute, Keypad, Hold, and End call controls." />
+  <figcaption>Active HFP call screen with the calling number masked for privacy and the primary call-control actions.</figcaption>
 </figure>
 
 The in-call keypad can be opened without leaving the call. The center action
@@ -70,22 +73,6 @@ changes to Hide keypad while Mute, Hold, and End call remain available.
 <figure>
   <img src="images/journal/week-21/PXL_20261019_133450572.jpg" alt="AGL in-call keypad showing DTMF keys, Mute, Hide keypad, Hold, and End call controls." />
   <figcaption>DTMF keypad available during an active call.</figcaption>
-</figure>
-
-The Messages detail view displays the message thread for a selected number,
-with the conversation history and a message composer at the bottom.
-
-<figure>
-  <img src="images/journal/week-21/PXL_20261019_133507869.jpg" alt="AGL Messages detail view showing an SMS conversation with a selected number, message history, and message composer." />
-  <figcaption>SMS conversation detail with message history and compose field.</figcaption>
-</figure>
-
-The Messages overview lists synchronized conversations and exposes refresh and
-compose actions from the header.
-
-<figure>
-  <img src="images/journal/week-21/PXL_20261019_133515493.jpg" alt="AGL Messages overview showing synchronized conversations from the connected phone with refresh and compose actions." />
-  <figcaption>Messages overview synchronized from the connected phone.</figcaption>
 </figure>
 
 ## Testing
