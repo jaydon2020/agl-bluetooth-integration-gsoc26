@@ -14,22 +14,26 @@
 | Project documentation | [`agl-bluetooth-integration-gsoc26`](https://jaydon2020.github.io/agl-bluetooth-integration-gsoc26/) |
 
 This README is the stable final-work submission. The Gerrit changes, Jira
-tickets, implementation snapshot, native-library repositories, and supporting
-documentation below identify the work completed during GSoC 2026.
+tickets, native-library repositories, and supporting material below identify
+the work completed during GSoC 2026.
 
 ## Project overview
 
-This project brings native Bluetooth phone integration to Automotive Grade
-Linux's Flutter Instrument Cluster and Infotainment homescreen. It replaces
-demo-only Bluetooth behavior with an integration that uses BlueZ, BlueZ OBEX,
-PipeWire Telephony, WirePlumber, and MPD while keeping the Flutter application
-responsible for presentation and state coordination.
+Automotive Grade Linux has adopted Flutter for its modern Instrument Cluster
+and Infotainment homescreen, but the Flutter experience lacked complete native
+Bluetooth integration. Important phone-to-vehicle workflows were either
+missing or represented only by demo behavior, leaving a gap between the user
+interface and the Bluetooth, telephony, and audio services available on AGL.
 
-The completed work lets a driver discover and pair a phone, play and control
-Bluetooth media, synchronize contacts and call history, manage hands-free
-calls, and recover cleanly when a phone or system service disconnects. The
-native D-Bus library supports MAP, providing the foundation for the pending
-homescreen messaging integration.
+The objective of this project is to reduce that gap by providing a
+full-featured Bluetooth reference demo for the AGL Flutter homescreen. The
+project connects Flutter and Riverpod application state to BlueZ, BlueZ OBEX,
+PipeWire Telephony, and WirePlumber through reusable native Dart libraries. It
+demonstrates phone discovery and pairing, A2DP/AVRCP media,
+PBAP contacts and call history, HFP hands-free calling, SCO audio coordination,
+and recovery when a phone or system service disconnects. Native MAP D-Bus
+support is available as the foundation for the pending homescreen messaging
+integration.
 
 ## Goals and outcomes
 
@@ -311,9 +315,9 @@ the native MAP D-Bus support to the homescreen Messages application.
 ## Conclusion
 
 The project moved AGL's Flutter homescreen from a visual Bluetooth settings
-demo to a native phone-integration stack with device management, A2DP/AVRCP
-media, persistent contacts, call history, HFP calling, SCO audio coordination,
-and native MAP D-Bus support. The homescreen MAP messaging flow remains
-pending. The architecture keeps platform services behind provider and native
-backend boundaries, while the documentation provides a practical base for
-downstream integration and upstream review.
+demo to a full-featured native phone-integration reference with device
+management, A2DP/AVRCP media, PBAP contact and call-history synchronization,
+HFP call control, SCO audio coordination, and native MAP D-Bus support. The
+homescreen MAP messaging flow remains pending. The architecture keeps platform
+services behind Riverpod provider and native backend boundaries, creating a
+practical foundation for downstream integration and upstream development.
