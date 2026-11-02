@@ -29,7 +29,7 @@ final class FlutterSiteSwitcher extends StatelessComponent {
               href: githubUrl,
             ),
             _ExternalSiteLinkEntry(
-              logo: 'https://wiki.automotivelinux.org/_media/wiki/logo.png',
+              logo: 'images/agl-logo-color.png',
               logoWide: true,
               label: 'AGL Linux',
               href: aglLinuxUrl,
