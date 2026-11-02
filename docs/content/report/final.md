@@ -49,6 +49,7 @@ homescreen messaging integration.
 | A2DP and AVRCP homescreen integration | Merged upstream | [Gerrit 32060](https://gerrit.automotivelinux.org/gerrit/c/apps/flutter-ics-homescreen/+/32060) |
 | Native BlueZ media library | Imported into the official AGL repository | [Gerrit 32074](https://gerrit.automotivelinux.org/gerrit/c/staging/bluez-media-native/+/32074) |
 | BlueZ media-player fixes | Merged into the AGL demo layer | [Gerrit 32104](https://gerrit.automotivelinux.org/gerrit/c/AGL/meta-agl-demo/+/32104) |
+| PBAP phonebook and HFP telephony implementation | Open upstream change | [Gerrit 32181](https://gerrit.automotivelinux.org/gerrit/c/apps/flutter-ics-homescreen/+/32181) |
 | Native PipeWire HFP configuration | Open upstream change | [Gerrit 32154](https://gerrit.automotivelinux.org/gerrit/c/AGL/meta-agl/+/32154) |
 | Native telephony and OBEX libraries | Development repositories available; AGL repository requests open | [SPEC-5755](https://lf-automotivelinux.atlassian.net/browse/SPEC-5755), [SPEC-5756](https://lf-automotivelinux.atlassian.net/browse/SPEC-5756) |
 | MAP homescreen application | Pending; native MAP D-Bus support is available | [`bluez_obex_native`](https://github.com/jaydon2020/bluez_obex_native) |
@@ -194,6 +195,7 @@ calls code-review submissions *changes* rather than merge requests.
 | [32103](https://gerrit.automotivelinux.org/gerrit/c/AGL/meta-agl-demo/+/32103) | `AGL/meta-agl-demo` | Update the homescreen recipe revision for Bluetooth media support | Abandoned | [SPEC-5715](https://lf-automotivelinux.atlassian.net/browse/SPEC-5715) |
 | [32104](https://gerrit.automotivelinux.org/gerrit/c/AGL/meta-agl-demo/+/32104) | `AGL/meta-agl-demo` | Backport BlueZ 5.86 media-player fixes | Merged | [SPEC-5719](https://lf-automotivelinux.atlassian.net/browse/SPEC-5719) |
 | [32154](https://gerrit.automotivelinux.org/gerrit/c/AGL/meta-agl/+/32154) | `AGL/meta-agl` | Configure PipeWire's native HFP telephony backend and D-Bus policy | Open | [SPEC-5754](https://lf-automotivelinux.atlassian.net/browse/SPEC-5754) |
+| [32181](https://gerrit.automotivelinux.org/gerrit/c/apps/flutter-ics-homescreen/+/32181) | `apps/flutter-ics-homescreen` | Add PBAP phonebook and HFP telephony support | Open | [SPEC-5754](https://lf-automotivelinux.atlassian.net/browse/SPEC-5754) |
 
 ### Related AGL integration changes
 
@@ -213,7 +215,7 @@ calls code-review submissions *changes* rather than merge requests.
 | [SPEC-5715](https://lf-automotivelinux.atlassian.net/browse/SPEC-5715) | Bluetooth media integration in `flutter-ics-homescreen` |
 | [SPEC-5718](https://lf-automotivelinux.atlassian.net/browse/SPEC-5718) | Request for an official AGL BlueZ media native repository |
 | [SPEC-5719](https://lf-automotivelinux.atlassian.net/browse/SPEC-5719) | BlueZ media-player fixes |
-| [SPEC-5754](https://lf-automotivelinux.atlassian.net/browse/SPEC-5754) | Native PipeWire HFP telephony backend for AGL |
+| [SPEC-5754](https://lf-automotivelinux.atlassian.net/browse/SPEC-5754) | PBAP phonebook, HFP telephony, and native PipeWire HFP support for AGL |
 | [SPEC-5755](https://lf-automotivelinux.atlassian.net/browse/SPEC-5755) | Repository request for `pipewire_telephony_native` |
 | [SPEC-5756](https://lf-automotivelinux.atlassian.net/browse/SPEC-5756) | Repository request for `bluez_obex_native` |
 
@@ -226,6 +228,14 @@ calls code-review submissions *changes* rather than merge requests.
 | PipeWire telephony library | [`jaydon2020/pipewire_telephony_native`](https://github.com/jaydon2020/pipewire_telephony_native) | AGL repository request [SPEC-5755](https://lf-automotivelinux.atlassian.net/browse/SPEC-5755) open |
 | BlueZ OBEX library | [`jaydon2020/bluez_obex_native`](https://github.com/jaydon2020/bluez_obex_native) | AGL repository request [SPEC-5756](https://lf-automotivelinux.atlassian.net/browse/SPEC-5756) open |
 | BlueZ media-player crash | [Project issue #5](https://github.com/jaydon2020/agl-bluetooth-integration-gsoc26/issues/5) | Closed after the fixes were incorporated |
+
+### `bluez_native` upstream issue and contributions
+
+| Contribution | Link | Outcome |
+| --- | --- | --- |
+| Pairing cancellation and rejection crash report | [`jwinarske/bluez_native` issue #4](https://github.com/jwinarske/bluez_native/issues/4) | Documents the AGL `flutter-auto` abort and native heap-corruption symptoms; closed upstream |
+| Trusted, Discoverable, and Pairable properties | [`jwinarske/bluez_native` pull request #6](https://github.com/jwinarske/bluez_native/pull/6) | Merged into `bluez_native` |
+| Profile-specific device connection | [`jwinarske/bluez_native` pull request #17](https://github.com/jwinarske/bluez_native/pull/17) | Exposes `BlueZDevice.connectProfile(BlueZUUID)` through the native bridge; open |
 
 ### BlueZ 5.86 media-player backport
 
